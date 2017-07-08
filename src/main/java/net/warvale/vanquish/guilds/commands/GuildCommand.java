@@ -1,8 +1,11 @@
 package main.java.net.warvale.vanquish.guilds.commands;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -14,7 +17,7 @@ public class GuildCommand extends AbstractCommand {
 	/* Created by Tricks */
 
 	public GuildCommand() {
-		super("guild", "");
+		super("guild", "<create|info|rename|promote|demote>");
 	}
 
 	@Override
@@ -24,15 +27,86 @@ public class GuildCommand extends AbstractCommand {
 		}
 
 		Player player = (Player) sender;
+		Object guildsPrefix = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("GuildsPrefix"));
+		if(args.length == 0){
+			player.sendMessage(ChatColor.RED + "�6Guild Commands");
+			player.sendMessage(ChatColor.RED + "�e/guild create");
+			player.sendMessage(ChatColor.RED + "�e/guild info");
+			player.sendMessage(ChatColor.RED + "�e/guild rename");
+			player.sendMessage(ChatColor.RED + "�e/guild promote");
+			player.sendMessage(ChatColor.RED + "�e/guild demote");
+			return true;
+		}
+		switch (args[0]){
+			case "create": //I just copied the code from the previous create class
+				if (args.length != 2){
+					player.sendMessage(ChatColor.RED + "/guild create <name>");
+					break;
+				}
+				/* Check to see if the Player is already in a Guild */
+				if (!(plugin.getConfig().get("Player-Data." + player.getUniqueId().toString() + ".InGuild") == null)) {
+					player.sendMessage(guildsPrefix + "�7You're already in a Guild.");
+					return true;
+				}
 
-		/* Dont know all the Commands needed yet */
-		player.sendMessage("�6Guild Commands");
-		player.sendMessage("�e/Create");
-		player.sendMessage("�e/Info");
-		player.sendMessage("�e/Rename");
-		player.sendMessage("�e/Promote");
-		player.sendMessage("�e/Demote");
+				/* String for the GuildName the player wants */
+				String guildName = args[1];
 
+				/* Check to see if anyone else has that Guild Name */
+				if (plugin.getConfig().contains("Guild-Data." + guildName)) {
+					player.sendMessage(guildsPrefix + "�7That Guild name is already in use.");
+					return true;
+				}
+
+				/* Check to make sure the Guild name is less than 10 Characters (Prevents spam) */
+				if(guildName.length() > 10) {
+					player.sendMessage(guildsPrefix + "�7That Guild name is too long.");
+					return true;
+				}
+
+				/* Check to make sure the Guild name only contains alphabet letters, again to prevent spam */
+				if(!guildName.matches("[a-zA-Z_]*")){
+					player.sendMessage(guildsPrefix + "�7Guild names can only contain A-Z");
+					return true;
+				}
+
+				/* Making Guild details */
+				plugin.getConfig().createSection("Guild-Data." + guildName);
+				plugin.getConfig().set("Guild-Data." + guildName + ".GuildOwner", player.getUniqueId().toString());
+
+				plugin.getConfig().set("Guild-Data." + guildName + ".AmountOfMembers", 1);
+				plugin.getConfig().set("Guild-Data." + guildName + ".DateCreated", new SimpleDateFormat("dd/MM/yy").format(new Date()));
+				plugin.getConfig().set("Guild-Data." + guildName + ".GuildLevel", 0);
+				plugin.saveConfig();
+
+				// * Making player details */
+				plugin.getConfig().set("Player-Data." + player.getUniqueId().toString() + ".InGuild", true);
+				plugin.getConfig().set("Player-Data." + player.getUniqueId().toString() + ".GuildName", guildName);
+				plugin.saveConfig();
+
+				player.sendMessage(guildsPrefix + "�7You have just created the Guild �e" + guildName);
+				break;
+			case "info":
+				//todo: Put code here
+				break;
+			case "rename":
+				//todo: Put code here
+				break;
+			case "promote":
+				//todo: Put code here
+				break;
+			case "demote":
+				//todo: Put code here
+				break;
+			default:
+				player.sendMessage(ChatColor.RED + "�6Guild Commands");
+				player.sendMessage(ChatColor.RED + "�e/guild create");
+				player.sendMessage(ChatColor.RED + "�e/guild info");
+				player.sendMessage(ChatColor.RED + "�e/guild rename");
+				player.sendMessage(ChatColor.RED + "�e/guild promote");
+				player.sendMessage(ChatColor.RED + "�e/guild demote");
+				break;
+		}
 		return true;
 	}
 

@@ -30,7 +30,7 @@ public class Main extends JavaPlugin {
             ex.printStackTrace();
             getLogger().log(Level.WARNING, "Failed to enable LobbyCore!");
         }
-        //Register Events
+        //Register Events Here
         Bukkit.getPluginManager().registerEvents(new BlockListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
         Bukkit.getPluginManager().registerEvents(new FirstJoinGuildStats(this), this);
