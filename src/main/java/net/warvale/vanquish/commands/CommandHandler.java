@@ -1,12 +1,20 @@
 package main.java.net.warvale.vanquish.commands;
 
-import main.java.net.warvale.vanquish.Main;
-import main.java.net.warvale.vanquish.commands.admin.SetObsidianInLavaDecayCommand;
-import org.bukkit.command.*;
-import main.java.net.warvale.vanquish.utils.Broadcast;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
+
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandException;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.PluginCommand;
+import org.bukkit.command.TabCompleter;
+
+import main.java.net.warvale.vanquish.Main;
+import main.java.net.warvale.vanquish.commands.admin.SetObsidianInLavaDecayCommand;
+import main.java.net.warvale.vanquish.guilds.commands.GuildCommand;
+import main.java.net.warvale.vanquish.utils.Broadcast;
 
 public class CommandHandler implements CommandExecutor, TabCompleter {
     private final Main plugin;
@@ -115,7 +123,7 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
         cmds.add(new SetObsidianInLavaDecayCommand());
 
         // Basic
-
+        cmds.add(new GuildCommand());
 
         for (AbstractCommand cmd : cmds) {
             PluginCommand pCmd = plugin.getCommand(cmd.getName());

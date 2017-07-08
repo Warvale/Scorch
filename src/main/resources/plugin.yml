@@ -5,3 +5,5 @@ author: Warvale Development Team
 commands:
   setobsidiandecay:
     description: Set the time in seconds it takes obsidian to decay into lava when made with water.
+  guild:
+    description: List all of the Guild Commands.
