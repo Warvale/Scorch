@@ -1,7 +1,7 @@
 package net.warvale.vanquish;
 
-import net.warvale.vanquish.guilds.FirstJoinGuildStats;
 import net.warvale.vanquish.commands.CommandHandler;
+import net.warvale.vanquish.guilds.FirstJoinGuildStats;
 import net.warvale.vanquish.listeners.BlockListener;
 import net.warvale.vanquish.listeners.PlayerListener;
 import net.warvale.vanquish.physics.ObsidianToLava;
@@ -10,7 +10,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Created by AAces on 7/7/2017

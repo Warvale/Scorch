@@ -1,4 +1,4 @@
-package net.warvale.vanquish.guilds.commands;
+package net.warvale.vanquish.commands.admin;
 
 import net.warvale.vanquish.commands.AbstractCommand;
 import net.warvale.vanquish.exceptions.CommandException;

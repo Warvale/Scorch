@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
+import net.warvale.vanquish.commands.admin.Gen2dCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandException;
 import org.bukkit.command.CommandExecutor;
@@ -121,9 +122,12 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
 
         // Admin
         cmds.add(new SetObsidianInLavaDecayCommand());
-
+        cmds.add(new Gen2dCommand());
         // Basic
         cmds.add(new GuildCommand());
+
+
+
 
         for (AbstractCommand cmd : cmds) {
             PluginCommand pCmd = plugin.getCommand(cmd.getName());
