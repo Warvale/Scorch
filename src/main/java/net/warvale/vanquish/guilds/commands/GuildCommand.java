@@ -29,12 +29,12 @@ public class GuildCommand extends AbstractCommand {
 		Player player = (Player) sender;
 		Object guildsPrefix = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("GuildsPrefix"));
 		if(args.length == 0){
-			player.sendMessage(ChatColor.RED + "�6Guild Commands");
-			player.sendMessage(ChatColor.RED + "�e/guild create");
-			player.sendMessage(ChatColor.RED + "�e/guild info");
-			player.sendMessage(ChatColor.RED + "�e/guild rename");
-			player.sendMessage(ChatColor.RED + "�e/guild promote");
-			player.sendMessage(ChatColor.RED + "�e/guild demote");
+			player.sendMessage(ChatColor.DARK_RED + "Guild Commands");
+			player.sendMessage(ChatColor.RED + "/Guild create");
+			player.sendMessage(ChatColor.RED + "/Guild info");
+			player.sendMessage(ChatColor.RED + "/Guild rename");
+			player.sendMessage(ChatColor.RED + "/Guild promote");
+			player.sendMessage(ChatColor.RED + "/Guild demote");
 			return true;
 		}
 		switch (args[0]){
@@ -45,7 +45,7 @@ public class GuildCommand extends AbstractCommand {
 				}
 				/* Check to see if the Player is already in a Guild */
 				if (!(plugin.getConfig().get("Player-Data." + player.getUniqueId().toString() + ".InGuild") == null)) {
-					player.sendMessage(guildsPrefix + "�7You're already in a Guild.");
+					player.sendMessage(guildsPrefix + "You're already in a Guild.");
 					return true;
 				}
 
@@ -54,19 +54,19 @@ public class GuildCommand extends AbstractCommand {
 
 				/* Check to see if anyone else has that Guild Name */
 				if (plugin.getConfig().contains("Guild-Data." + guildName)) {
-					player.sendMessage(guildsPrefix + "�7That Guild name is already in use.");
+					player.sendMessage(guildsPrefix + "That Guild name is already in use.");
 					return true;
 				}
 
 				/* Check to make sure the Guild name is less than 10 Characters (Prevents spam) */
 				if(guildName.length() > 10) {
-					player.sendMessage(guildsPrefix + "�7That Guild name is too long.");
+					player.sendMessage(guildsPrefix + "That Guild name is too long.");
 					return true;
 				}
 
 				/* Check to make sure the Guild name only contains alphabet letters, again to prevent spam */
 				if(!guildName.matches("[a-zA-Z_]*")){
-					player.sendMessage(guildsPrefix + "�7Guild names can only contain A-Z");
+					player.sendMessage(guildsPrefix + "Guild names can only contain A-Z");
 					return true;
 				}
 
@@ -84,7 +84,7 @@ public class GuildCommand extends AbstractCommand {
 				plugin.getConfig().set("Player-Data." + player.getUniqueId().toString() + ".GuildName", guildName);
 				plugin.saveConfig();
 
-				player.sendMessage(guildsPrefix + "�7You have just created the Guild �e" + guildName);
+				player.sendMessage(guildsPrefix + "You have just created the Guild " + ChatColor.YELLOW + guildName);
 				break;
 			case "info":
 				//todo: Put code here
