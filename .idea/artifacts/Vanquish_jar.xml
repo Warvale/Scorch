@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="Vanquish:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/Vanquish_jar</output-path>
-    <root id="archive" name="Vanquish.jar">
-      <element id="module-output" name="Vanquish" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../spigot-1.12-R0.1-SNAPSHOT-b1346.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>
