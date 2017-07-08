@@ -1,10 +1,7 @@
 package main.java.net.warvale.vanquish;
 
-<<<<<<< HEAD
 import main.java.net.warvale.vanquish.guilds.FirstJoinGuildStats;
-=======
 import main.java.net.warvale.vanquish.commands.CommandHandler;
->>>>>>> origin/master
 import main.java.net.warvale.vanquish.listeners.BlockListener;
 import main.java.net.warvale.vanquish.listeners.PlayerListener;
 import main.java.net.warvale.vanquish.physics.ObsidianToLava;
@@ -23,23 +20,25 @@ public class Main extends JavaPlugin {
     private static CommandHandler cmds;
     @Override
     public void onEnable(){
-        instance = this;
-        try {
+        
+    	instance = this;
+        
+    	try {
             initialise();
             Broadcast.toConsole(Level.INFO, "Successfully enabled!");
         } catch(Exception ex) {
             ex.printStackTrace();
             getLogger().log(Level.WARNING, "Failed to enable LobbyCore!");
         }
+        
         Bukkit.getPluginManager().registerEvents(new BlockListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
-<<<<<<< HEAD
         Bukkit.getPluginManager().registerEvents(new FirstJoinGuildStats(this), this);
         ObsidianToLava.setDelay(5);
+       
         new ObsidianToLava().runTaskTimer(this, 0, 20);
+        
         getLogger().info("Enabled Vanquish");
-=======
->>>>>>> origin/master
     }
     @Override
     public void onDisable(){
