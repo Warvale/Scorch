@@ -1,10 +1,10 @@
-package main.java.net.warvale.vanquish.commands;
+package net.warvale.vanquish.commands;
 
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import main.java.net.warvale.vanquish.exceptions.CommandException;
+import net.warvale.vanquish.exceptions.CommandException;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package main.java.net.warvale.vanquish.utils;
+package net.warvale.vanquish.utils;
 
-import main.java.net.warvale.vanquish.Main;
+import net.warvale.vanquish.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -29,21 +29,21 @@ public class Broadcast {
 
     public static void toPlayer(Player player, BroadcastType broadcastType, String message) {
         if(broadcastType == BroadcastType.SUCCESS) {
-            player.sendMessage(ChatColor.DARK_GREEN + "[LobbyCore] " + ChatColor.GREEN + message);
+            player.sendMessage(ChatColor.DARK_GREEN + "[Vanquish] " + ChatColor.GREEN + message);
         } else if(broadcastType == BroadcastType.FAILURE) {
-            player.sendMessage(ChatColor.DARK_RED + "[LobbyCore] " + ChatColor.RED + message);
+            player.sendMessage(ChatColor.DARK_RED + "[Vanquish] " + ChatColor.RED + message);
         } else if(broadcastType == BroadcastType.BASIC) {
-            player.sendMessage(ChatColor.GOLD + "[LobbyCore] " + ChatColor.YELLOW + message);
+            player.sendMessage(ChatColor.GOLD + "[Vanquish] " + ChatColor.YELLOW + message);
         }
     }
 
     public static void toSender(CommandSender sender, BroadcastType broadcastType, String message) {
         if(broadcastType == BroadcastType.SUCCESS) {
-            sender.sendMessage(ChatColor.DARK_GREEN + "[LobbyCore] " + ChatColor.GREEN + message);
+            sender.sendMessage(ChatColor.DARK_GREEN + "[Vanquish] " + ChatColor.GREEN + message);
         } else if(broadcastType == BroadcastType.FAILURE) {
-            sender.sendMessage(ChatColor.DARK_RED + "[LobbyCore] " + ChatColor.RED + message);
+            sender.sendMessage(ChatColor.DARK_RED + "[Vanquish] " + ChatColor.RED + message);
         } else if(broadcastType == BroadcastType.BASIC) {
-            sender.sendMessage(ChatColor.GOLD + "[LobbyCore] " + ChatColor.YELLOW + message);
+            sender.sendMessage(ChatColor.GOLD + "[Vanquish] " + ChatColor.YELLOW + message);
         }
     }
 }

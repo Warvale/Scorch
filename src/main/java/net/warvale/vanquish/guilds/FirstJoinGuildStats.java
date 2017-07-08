@@ -1,4 +1,4 @@
-package main.java.net.warvale.vanquish.guilds;
+package net.warvale.vanquish.guilds;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,7 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import main.java.net.warvale.vanquish.Main;
+import net.warvale.vanquish.Main;
 
 public class FirstJoinGuildStats implements Listener {
 

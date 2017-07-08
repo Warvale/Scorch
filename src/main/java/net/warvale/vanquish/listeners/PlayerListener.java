@@ -1,4 +1,4 @@
-package main.java.net.warvale.vanquish.listeners;
+package net.warvale.vanquish.listeners;
 
 import org.bukkit.event.Listener;
 

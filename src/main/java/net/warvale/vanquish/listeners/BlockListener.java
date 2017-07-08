@@ -1,6 +1,6 @@
-package main.java.net.warvale.vanquish.listeners;
+package net.warvale.vanquish.listeners;
 
-import main.java.net.warvale.vanquish.physics.ObsidianToLava;
+import net.warvale.vanquish.physics.ObsidianToLava;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;

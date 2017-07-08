@@ -1,4 +1,4 @@
-package main.java.net.warvale.vanquish.commands;
+package net.warvale.vanquish.commands;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +11,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.command.TabCompleter;
 
-import main.java.net.warvale.vanquish.Main;
-import main.java.net.warvale.vanquish.commands.admin.SetObsidianInLavaDecayCommand;
-import main.java.net.warvale.vanquish.guilds.commands.GuildCommand;
-import main.java.net.warvale.vanquish.utils.Broadcast;
+import net.warvale.vanquish.Main;
+import net.warvale.vanquish.commands.admin.SetObsidianInLavaDecayCommand;
+import net.warvale.vanquish.guilds.commands.GuildCommand;
+import net.warvale.vanquish.utils.Broadcast;
 
 public class CommandHandler implements CommandExecutor, TabCompleter {
     private final Main plugin;

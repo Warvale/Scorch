@@ -1,4 +1,4 @@
-package main.java.net.warvale.vanquish.physics;
+package net.warvale.vanquish.physics;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
