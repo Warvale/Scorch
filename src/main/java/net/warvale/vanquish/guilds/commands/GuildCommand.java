@@ -30,11 +30,11 @@ public class GuildCommand extends AbstractCommand {
 		Object guildsPrefix = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("GuildsPrefix"));
 		if(args.length == 0){
 			player.sendMessage(ChatColor.DARK_RED + "Guild Commands");
-			player.sendMessage(ChatColor.RED + "/Guild create");
-			player.sendMessage(ChatColor.RED + "/Guild info");
-			player.sendMessage(ChatColor.RED + "/Guild rename");
-			player.sendMessage(ChatColor.RED + "/Guild promote");
-			player.sendMessage(ChatColor.RED + "/Guild demote");
+			player.sendMessage(ChatColor.RED + "/guild create");
+			player.sendMessage(ChatColor.RED + "/guild info");
+			player.sendMessage(ChatColor.RED + "/guild rename");
+			player.sendMessage(ChatColor.RED + "/guild promote");
+			player.sendMessage(ChatColor.RED + "/guild demote");
 			return true;
 		}
 		switch (args[0]){
@@ -99,12 +99,12 @@ public class GuildCommand extends AbstractCommand {
 				//todo: Put code here
 				break;
 			default:
-				player.sendMessage(ChatColor.RED + "�6Guild Commands");
-				player.sendMessage(ChatColor.RED + "�e/guild create");
-				player.sendMessage(ChatColor.RED + "�e/guild info");
-				player.sendMessage(ChatColor.RED + "�e/guild rename");
-				player.sendMessage(ChatColor.RED + "�e/guild promote");
-				player.sendMessage(ChatColor.RED + "�e/guild demote");
+				player.sendMessage(ChatColor.RED + "Guild Commands");
+				player.sendMessage(ChatColor.RED + "/guild create");
+				player.sendMessage(ChatColor.RED + "/guild info");
+				player.sendMessage(ChatColor.RED + "/guild rename");
+				player.sendMessage(ChatColor.RED + "/guild promote");
+				player.sendMessage(ChatColor.RED + "/guild demote");
 				break;
 		}
 		return true;
