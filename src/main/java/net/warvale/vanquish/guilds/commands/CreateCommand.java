@@ -17,7 +17,7 @@ public class CreateCommand extends AbstractCommand {
 	/* Created by Tricks */
 
 	public CreateCommand() {
-		super("Create", "");
+		super("create", "");
 	}
 
 	@Override
@@ -33,13 +33,13 @@ public class CreateCommand extends AbstractCommand {
 
 		/* Check to see if the Player is already in a Guild */
 		if (!(plugin.getConfig().get("Player-Data." + player.getUniqueId().toString() + ".InGuild") == null)) {
-			player.sendMessage(guildsPrefix + "§7You're already in a Guild.");
+			player.sendMessage(guildsPrefix + "ï¿½7You're already in a Guild.");
 			return false;
 		}
 
 		/* Check to make sure the Right args are used */
 		if(args.length == 0 || args.length > 1) {	
-			player.sendMessage(guildsPrefix + "§7Usage: /Create (GuildName)");
+			player.sendMessage(guildsPrefix + "ï¿½7Usage: /Create (GuildName)");
 			return false;
 		}
 
@@ -48,19 +48,19 @@ public class CreateCommand extends AbstractCommand {
 
 		/* Check to see if anyone elser has that Guild Name */
 		if (plugin.getConfig().contains("Guild-Data." + guildName)) {
-			player.sendMessage(guildsPrefix + "§7That Guild name is already in use.");
+			player.sendMessage(guildsPrefix + "ï¿½7That Guild name is already in use.");
 			return false;
 		}
 		
 		/* Check to make sure the Guild name is less than 10 Characters (Prevents spam) */
 		if(guildName.length() > 10) {
-			player.sendMessage(guildsPrefix + "§7That Guild name is too long.");
+			player.sendMessage(guildsPrefix + "ï¿½7That Guild name is too long.");
 			return false;
 		}
 		
 		/* Check to make sure the Guild name only contains alphabet letters, again to prevent spam */
 		if(!guildName.matches("[a-zA-Z_]*")){
-			player.sendMessage(guildsPrefix + "§7Guild names can only contain A-Z");
+			player.sendMessage(guildsPrefix + "ï¿½7Guild names can only contain A-Z");
 			return false;
 		}
 		
@@ -78,7 +78,7 @@ public class CreateCommand extends AbstractCommand {
 		plugin.getConfig().set("Player-Data." + player.getUniqueId().toString() + ".GuildName", guildName);
 		plugin.saveConfig();
 		
-		player.sendMessage(guildsPrefix + "§7You have just created the Guild §e" + guildName);
+		player.sendMessage(guildsPrefix + "ï¿½7You have just created the Guild ï¿½e" + guildName);
 
 
 		return true;

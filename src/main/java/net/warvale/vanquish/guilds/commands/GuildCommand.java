@@ -14,7 +14,7 @@ public class GuildCommand extends AbstractCommand {
 	/* Created by Tricks */
 
 	public GuildCommand() {
-		super("Guild", "");
+		super("guild", "");
 	}
 
 	@Override
@@ -26,12 +26,12 @@ public class GuildCommand extends AbstractCommand {
 		Player player = (Player) sender;
 
 		/* Dont know all the Commands needed yet */
-		player.sendMessage("§6Guild Commands");
-		player.sendMessage("§e/Create");
-		player.sendMessage("§e/Info");
-		player.sendMessage("§e/Rename");
-		player.sendMessage("§e/Promote");
-		player.sendMessage("§e/Demote");
+		player.sendMessage("ï¿½6Guild Commands");
+		player.sendMessage("ï¿½e/Create");
+		player.sendMessage("ï¿½e/Info");
+		player.sendMessage("ï¿½e/Rename");
+		player.sendMessage("ï¿½e/Promote");
+		player.sendMessage("ï¿½e/Demote");
 
 		return true;
 	}

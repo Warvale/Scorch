@@ -30,15 +30,11 @@ public class Main extends JavaPlugin {
             ex.printStackTrace();
             getLogger().log(Level.WARNING, "Failed to enable LobbyCore!");
         }
-        
+        //Register Events
         Bukkit.getPluginManager().registerEvents(new BlockListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
         Bukkit.getPluginManager().registerEvents(new FirstJoinGuildStats(this), this);
-        ObsidianToLava.setDelay(5);
-       
-        new ObsidianToLava().runTaskTimer(this, 0, 20);
-        
-        getLogger().info("Enabled Vanquish");
+
     }
     @Override
     public void onDisable(){
