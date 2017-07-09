@@ -31,18 +31,33 @@ public class GuildCommand extends AbstractCommand {
 		Player player = (Player) sender;
 		Object guildsPrefix = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("GuildsPrefix"));
 		if(args.length == 0){
-			player.sendMessage(ChatColor.DARK_RED + "Guild Commands");
-			player.sendMessage(ChatColor.RED + "/guild create");
-			player.sendMessage(ChatColor.RED + "/guild info");
-			player.sendMessage(ChatColor.RED + "/guild rename");
-			player.sendMessage(ChatColor.RED + "/guild promote");
-			player.sendMessage(ChatColor.RED + "/guild demote");
+			player.sendMessage(C.gray + "[" + C.red + "Guilds" + C.gray + "] ");
+			
+			player.sendMessage("");
+			player.sendMessage(C.yellow + "General Commands");
+			player.sendMessage(C.gold + "/Guild Info" + C.gray + "- List information on your Guild.");
+			player.sendMessage(C.gold+ "/Guild Leave" + C.gray + "- Leave your current Guild.");
+			player.sendMessage(C.gold+ "/Guild Base" + C.gray + "- Teleport to your Guild Base");
+			player.sendMessage(C.gold+ "/Guild Accept" + C.gray + "- Accept a Guild Invite");
+			player.sendMessage(C.gold+ "/Guild Deny" + C.gray + "- Deny a Guild Invite");
+			
+			player.sendMessage("");
+			player.sendMessage(C.yellow + "Guild Assistant Commands");
+			player.sendMessage(C.gold+ "/Guild Kick" + C.gray + "- Kick a player from your Guild.");
+			
+			player.sendMessage("");
+			player.sendMessage(C.yellow + "Guild Owner Commands");
+			player.sendMessage(C.gold + "/Guild Create " + C.gray + "- Create a Guild.");
+			player.sendMessage(C.gold + "/Guild Rename" + C.gray + "- Rename your Guild.");
+			player.sendMessage(C.gold + "/Guild Promote" + C.gray + "- Promote a Player in your Guild.");
+			player.sendMessage(C.gold+ "/Guild Demote" + C.gray + "- Demote a Player in your Guild.");
+			player.sendMessage(C.gold+ "/Guild SetBase" + C.gray + "- Set the Base of your Guild for Teleports.");
 			return true;
 		}
 		switch (args[0]){
 			case "create": //I just copied the code from the previous create class
 				if (args.length != 2){
-					player.sendMessage(ChatColor.RED + "/guild create <name>");
+					player.sendMessage(guildsPrefix + "/guild create <name>");
 					break;
 				}
 				/* Check to see if the Player is already in a Guild */
@@ -124,6 +139,24 @@ public class GuildCommand extends AbstractCommand {
 
 				player.sendMessage("");
 				break;
+			case "invite":
+				//todo: Put code here
+				break;
+			case "accept":
+				//todo: Put code here
+				break;
+			case "deny":
+				//todo: Put code here
+				break;
+			case "kick":
+				//todo: Put code here
+				break;
+			case "setbase":
+				//todo: Put code here
+				break;
+			case "base":
+				//todo: Put code here
+				break;
 			case "rename":
 				//todo: Put code here
 				break;
@@ -134,12 +167,27 @@ public class GuildCommand extends AbstractCommand {
 				//todo: Put code here
 				break;
 			default:
-				player.sendMessage(ChatColor.RED + "Guild Commands");
-				player.sendMessage(ChatColor.RED + "/guild create");
-				player.sendMessage(ChatColor.RED + "/guild info");
-				player.sendMessage(ChatColor.RED + "/guild rename");
-				player.sendMessage(ChatColor.RED + "/guild promote");
-				player.sendMessage(ChatColor.RED + "/guild demote");
+				player.sendMessage(C.gray + "[" + C.red + "Guilds" + C.gray + "] ");
+				
+				player.sendMessage("");
+				player.sendMessage(C.yellow + "General Commands");
+				player.sendMessage(C.gold + "/Guild Info" + C.gray + "- List information on your Guild.");
+				player.sendMessage(C.gold+ "/Guild Leave" + C.gray + "- Leave your current Guild.");
+				player.sendMessage(C.gold+ "/Guild Base" + C.gray + "- Teleport to your Guild Base");
+				player.sendMessage(C.gold+ "/Guild Accept" + C.gray + "- Accept a Guild Invite");
+				player.sendMessage(C.gold+ "/Guild Deny" + C.gray + "- Deny a Guild Invite");
+				
+				player.sendMessage("");
+				player.sendMessage(C.yellow + "Guild Assistant Commands");
+				player.sendMessage(C.gold+ "/Guild Kick" + C.gray + "- Kick a player from your Guild.");
+				
+				player.sendMessage("");
+				player.sendMessage(C.yellow + "Guild Owner Commands");
+				player.sendMessage(C.gold + "/Guild Create " + C.gray + "- Create a Guild.");
+				player.sendMessage(C.gold + "/Guild Rename" + C.gray + "- Rename your Guild.");
+				player.sendMessage(C.gold + "/Guild Promote" + C.gray + "- Promote a Player in your Guild.");
+				player.sendMessage(C.gold+ "/Guild Demote" + C.gray + "- Demote a Player in your Guild.");
+				player.sendMessage(C.gold+ "/Guild SetBase" + C.gray + "- Set the Base of your Guild for Teleports.");
 				break;
 		}
 		return true;
