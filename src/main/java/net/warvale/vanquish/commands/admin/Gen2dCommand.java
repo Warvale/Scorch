@@ -2,12 +2,9 @@ package net.warvale.vanquish.commands.admin;
 
 import net.warvale.vanquish.commands.AbstractCommand;
 import net.warvale.vanquish.exceptions.CommandException;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
-import org.bukkit.block.Block;
+import net.warvale.vanquish.guilds.regions.RegionMapGen;
+import org.bukkit.*;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,28 +14,17 @@ import java.util.List;
  */
 public class Gen2dCommand extends AbstractCommand {
 
-    public Gen2dCommand() {super("gen2d", "");}
+    public Gen2dCommand() {super("gen2d", "<world name>");}
     private double sealevel = 20;
     @Override
     public boolean execute(CommandSender sender, String[] args) throws CommandException {
-        if (!(sender instanceof Player)) {
-            sender.sendMessage("this is a player-only command");
-            return true;
+        if (Bukkit.getServer().getWorld(args[0]) == null) {
+            throw new CommandException("Invalid world name!");
         }
-        World world = ((Player) sender).getWorld();
+        World world = Bukkit.getServer().getWorld(args[0]);
+        sender.sendMessage(ChatColor.RED + "Generating region map, output will be printed to console.");
+        RegionMapGen.genRegionMap(world);
 
-        ArrayList<Integer> map = new ArrayList<>();
-
-        double sizexz = world.getWorldBorder().getSize();
-        System.out.println("Generating 2d world map, worldborder size: " + sizexz);
-        for (double x=0; x <= sizexz; x++) {
-            for (double z=0; z <= sizexz; z++) {
-                Block currentBlock = world.getBlockAt(new Location(world, x,sealevel,z));
-                if (currentBlock.getType().equals(Material.BEDROCK)) {map.add(1);} else {map.add(0);}
-
-            }
-        }
-        System.out.println("Finished generating 2d world map: " + map);
         return true;
     }
     @Override
