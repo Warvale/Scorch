@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import net.warvale.vanquish.C;
 import net.warvale.vanquish.commands.AbstractCommand;
 import net.warvale.vanquish.exceptions.CommandException;
 
@@ -87,7 +89,40 @@ public class GuildCommand extends AbstractCommand {
 				player.sendMessage(guildsPrefix + "You have just created the Guild " + ChatColor.YELLOW + guildName);
 				break;
 			case "info":
-				//todo: Put code here
+
+				if (plugin.getConfig().get("Player-Data." + player.getUniqueId().toString() + ".InGuild") == null) {
+					player.sendMessage(guildsPrefix + "You're not in a Guild.");
+					return true;
+				}
+
+				
+				/* Object for the players current guild name */
+				Object currentGuildName = plugin.getConfig().get("Player-Data." + player.getUniqueId().toString() + ".GuildName");
+
+				
+				/* Get all online members in their guild */
+				List<String> playersInGuild = new ArrayList<>();
+
+				for (Player onlinePlayers : Bukkit.getOnlinePlayers()) {
+					if (plugin.getConfig()
+							.get("Player-Data." + onlinePlayers.getUniqueId().toString() + ".GuildName") == currentGuildName)
+						playersInGuild.add(onlinePlayers.getName().toString() + C.gray);
+				}
+
+
+				player.sendMessage("");
+
+				player.sendMessage(C.gray + "[" + C.red + "Guilds" + C.gray + "] ");
+
+				player.sendMessage(C.gray + "Guild Name: " + C.gold + currentGuildName);
+				
+				player.sendMessage(C.gray + "Islands Claimed: " + C.gold + "Soon");
+
+				player.sendMessage(C.gray + "Date Created: " + C.gold + plugin.getConfig().get("Guild-Data." + currentGuildName + ".DateCreated"));
+
+				player.sendMessage(C.gray + "Online Members: " + playersInGuild.toString().replace("[", "").replace("]", "").trim());
+
+				player.sendMessage("");
 				break;
 			case "rename":
 				//todo: Put code here
