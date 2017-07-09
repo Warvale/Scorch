@@ -10,7 +10,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import net.warvale.vanquish.C;
+import net.warvale.vanquish.utils.ChatUtils;
 import net.warvale.vanquish.commands.AbstractCommand;
 import net.warvale.vanquish.exceptions.CommandException;
 
@@ -31,27 +31,27 @@ public class GuildCommand extends AbstractCommand {
 		Player player = (Player) sender;
 		Object guildsPrefix = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("GuildsPrefix"));
 		if(args.length == 0){
-			player.sendMessage(C.gray + "[" + C.red + "Guilds" + C.gray + "] ");
+			player.sendMessage(ChatUtils.gray + "[" + ChatUtils.red + "Guilds" + ChatUtils.gray + "] ");
 			
 			player.sendMessage("");
-			player.sendMessage(C.yellow + "General Commands");
-			player.sendMessage(C.gold + "/Guild Info" + C.gray + "- List information on your Guild.");
-			player.sendMessage(C.gold+ "/Guild Leave" + C.gray + "- Leave your current Guild.");
-			player.sendMessage(C.gold+ "/Guild Base" + C.gray + "- Teleport to your Guild Base");
-			player.sendMessage(C.gold+ "/Guild Accept" + C.gray + "- Accept a Guild Invite");
-			player.sendMessage(C.gold+ "/Guild Deny" + C.gray + "- Deny a Guild Invite");
+			player.sendMessage(ChatUtils.yellow + "General Commands");
+			player.sendMessage(ChatUtils.gold + "/Guild Info" + ChatUtils.gray + "- List information on your Guild.");
+			player.sendMessage(ChatUtils.gold+ "/Guild Leave" + ChatUtils.gray + "- Leave your current Guild.");
+			player.sendMessage(ChatUtils.gold+ "/Guild Base" + ChatUtils.gray + "- Teleport to your Guild Base");
+			player.sendMessage(ChatUtils.gold+ "/Guild Accept" + ChatUtils.gray + "- Accept a Guild Invite");
+			player.sendMessage(ChatUtils.gold+ "/Guild Deny" + ChatUtils.gray + "- Deny a Guild Invite");
 			
 			player.sendMessage("");
-			player.sendMessage(C.yellow + "Guild Assistant Commands");
-			player.sendMessage(C.gold+ "/Guild Kick" + C.gray + "- Kick a player from your Guild.");
+			player.sendMessage(ChatUtils.yellow + "Guild Assistant Commands");
+			player.sendMessage(ChatUtils.gold+ "/Guild Kick" + ChatUtils.gray + "- Kick a player from your Guild.");
 			
 			player.sendMessage("");
-			player.sendMessage(C.yellow + "Guild Owner Commands");
-			player.sendMessage(C.gold + "/Guild Create " + C.gray + "- Create a Guild.");
-			player.sendMessage(C.gold + "/Guild Rename" + C.gray + "- Rename your Guild.");
-			player.sendMessage(C.gold + "/Guild Promote" + C.gray + "- Promote a Player in your Guild.");
-			player.sendMessage(C.gold+ "/Guild Demote" + C.gray + "- Demote a Player in your Guild.");
-			player.sendMessage(C.gold+ "/Guild SetBase" + C.gray + "- Set the Base of your Guild for Teleports.");
+			player.sendMessage(ChatUtils.yellow + "Guild Owner Commands");
+			player.sendMessage(ChatUtils.gold + "/Guild Create " + ChatUtils.gray + "- Create a Guild.");
+			player.sendMessage(ChatUtils.gold + "/Guild Rename" + ChatUtils.gray + "- Rename your Guild.");
+			player.sendMessage(ChatUtils.gold + "/Guild Promote" + ChatUtils.gray + "- Promote a Player in your Guild.");
+			player.sendMessage(ChatUtils.gold+ "/Guild Demote" + ChatUtils.gray + "- Demote a Player in your Guild.");
+			player.sendMessage(ChatUtils.gold+ "/Guild SetBase" + ChatUtils.gray + "- Set the Base of your Guild for Teleports.");
 			return true;
 		}
 		switch (args[0]){
@@ -121,21 +121,21 @@ public class GuildCommand extends AbstractCommand {
 				for (Player onlinePlayers : Bukkit.getOnlinePlayers()) {
 					if (plugin.getConfig()
 							.get("Player-Data." + onlinePlayers.getUniqueId().toString() + ".GuildName") == currentGuildName)
-						playersInGuild.add(onlinePlayers.getName().toString() + C.gray);
+						playersInGuild.add(onlinePlayers.getName().toString() + ChatUtils.gray);
 				}
 
 
 				player.sendMessage("");
 
-				player.sendMessage(C.gray + "[" + C.red + "Guilds" + C.gray + "] ");
+				player.sendMessage(ChatUtils.gray + "[" + ChatUtils.red + "Guilds" + ChatUtils.gray + "] ");
 
-				player.sendMessage(C.gray + "Guild Name: " + C.gold + currentGuildName);
+				player.sendMessage(ChatUtils.gray + "Guild Name: " + ChatUtils.gold + currentGuildName);
 				
-				player.sendMessage(C.gray + "Islands Claimed: " + C.gold + "Soon");
+				player.sendMessage(ChatUtils.gray + "Islands Claimed: " + ChatUtils.gold + "Soon");
 
-				player.sendMessage(C.gray + "Date Created: " + C.gold + plugin.getConfig().get("Guild-Data." + currentGuildName + ".DateCreated"));
+				player.sendMessage(ChatUtils.gray + "Date Created: " + ChatUtils.gold + plugin.getConfig().get("Guild-Data." + currentGuildName + ".DateCreated"));
 
-				player.sendMessage(C.gray + "Online Members: " + playersInGuild.toString().replace("[", "").replace("]", "").trim());
+				player.sendMessage(ChatUtils.gray + "Online Members: " + playersInGuild.toString().replace("[", "").replace("]", "").trim());
 
 				player.sendMessage("");
 				break;
@@ -167,27 +167,27 @@ public class GuildCommand extends AbstractCommand {
 				//todo: Put code here
 				break;
 			default:
-				player.sendMessage(C.gray + "[" + C.red + "Guilds" + C.gray + "] ");
+				player.sendMessage(ChatUtils.gray + "[" + ChatUtils.red + "Guilds" + ChatUtils.gray + "] ");
 				
 				player.sendMessage("");
-				player.sendMessage(C.yellow + "General Commands");
-				player.sendMessage(C.gold + "/Guild Info" + C.gray + "- List information on your Guild.");
-				player.sendMessage(C.gold+ "/Guild Leave" + C.gray + "- Leave your current Guild.");
-				player.sendMessage(C.gold+ "/Guild Base" + C.gray + "- Teleport to your Guild Base");
-				player.sendMessage(C.gold+ "/Guild Accept" + C.gray + "- Accept a Guild Invite");
-				player.sendMessage(C.gold+ "/Guild Deny" + C.gray + "- Deny a Guild Invite");
+				player.sendMessage(ChatUtils.yellow + "General Commands");
+				player.sendMessage(ChatUtils.gold + "/Guild Info" + ChatUtils.gray + "- List information on your Guild.");
+				player.sendMessage(ChatUtils.gold+ "/Guild Leave" + ChatUtils.gray + "- Leave your current Guild.");
+				player.sendMessage(ChatUtils.gold+ "/Guild Base" + ChatUtils.gray + "- Teleport to your Guild Base");
+				player.sendMessage(ChatUtils.gold+ "/Guild Accept" + ChatUtils.gray + "- Accept a Guild Invite");
+				player.sendMessage(ChatUtils.gold+ "/Guild Deny" + ChatUtils.gray + "- Deny a Guild Invite");
 				
 				player.sendMessage("");
-				player.sendMessage(C.yellow + "Guild Assistant Commands");
-				player.sendMessage(C.gold+ "/Guild Kick" + C.gray + "- Kick a player from your Guild.");
+				player.sendMessage(ChatUtils.yellow + "Guild Assistant Commands");
+				player.sendMessage(ChatUtils.gold+ "/Guild Kick" + ChatUtils.gray + "- Kick a player from your Guild.");
 				
 				player.sendMessage("");
-				player.sendMessage(C.yellow + "Guild Owner Commands");
-				player.sendMessage(C.gold + "/Guild Create " + C.gray + "- Create a Guild.");
-				player.sendMessage(C.gold + "/Guild Rename" + C.gray + "- Rename your Guild.");
-				player.sendMessage(C.gold + "/Guild Promote" + C.gray + "- Promote a Player in your Guild.");
-				player.sendMessage(C.gold+ "/Guild Demote" + C.gray + "- Demote a Player in your Guild.");
-				player.sendMessage(C.gold+ "/Guild SetBase" + C.gray + "- Set the Base of your Guild for Teleports.");
+				player.sendMessage(ChatUtils.yellow + "Guild Owner Commands");
+				player.sendMessage(ChatUtils.gold + "/Guild Create " + ChatUtils.gray + "- Create a Guild.");
+				player.sendMessage(ChatUtils.gold + "/Guild Rename" + ChatUtils.gray + "- Rename your Guild.");
+				player.sendMessage(ChatUtils.gold + "/Guild Promote" + ChatUtils.gray + "- Promote a Player in your Guild.");
+				player.sendMessage(ChatUtils.gold+ "/Guild Demote" + ChatUtils.gray + "- Demote a Player in your Guild.");
+				player.sendMessage(ChatUtils.gold+ "/Guild SetBase" + ChatUtils.gray + "- Set the Base of your Guild for Teleports.");
 				break;
 		}
 		return true;

@@ -1,8 +1,8 @@
-package net.warvale.vanquish;
+package net.warvale.vanquish.utils;
 
 import org.bukkit.ChatColor;
 
-public class C {
+public class ChatUtils {
 	 public static String scramble = ChatColor.MAGIC.toString();
 	    public static String bold = ChatColor.BOLD.toString();
 	    public static String strike = ChatColor.STRIKETHROUGH.toString();
@@ -28,7 +28,7 @@ public class C {
 	    public static String white = ChatColor.WHITE.toString();
 	    public static String yellow = ChatColor.YELLOW.toString();
 
-	    public static String warning = C.yellow + "[!]";
+	    public static String warning = ChatUtils.yellow + "[!]";
 
 	    public static String divider = gold + "--------------------------------------";
 	    public static String tab = "   ";
