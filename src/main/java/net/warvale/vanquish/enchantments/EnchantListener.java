@@ -187,7 +187,7 @@ public class EnchantListener implements Listener {
                     if (player.getInventory().getItem(6).getType() == null) break;
                     if(!enchant.getApplicableTo().getItems().contains(player.getInventory().getItem(6).getType())){
                         player.closeInventory();
-                        player.sendMessage(ChatColor.GREEN + "This enchant can not be applied to this item!");
+                        player.sendMessage(ChatColor.RED + "This enchant can not be applied to this item!");
                         break;
                     }
                     ItemStack item6 = player.getInventory().getItem(6);
