@@ -116,7 +116,7 @@ public class EnchantListener implements Listener {
                     player.getInventory().setItem(0, enchant.addToItem(item, 1));
                     player.getInventory().clear(player.getInventory().getHeldItemSlot());
                     player.closeInventory();
-                    player.sendMessage(ChatColor.RED + "Enchant successfully applied!");
+                    player.sendMessage(ChatColor.GREEN + "Enchant successfully applied!");
                     break;
                 case 1:
                     if (player.getInventory().getItem(1).getType() == null) break;
@@ -129,7 +129,7 @@ public class EnchantListener implements Listener {
                     player.getInventory().setItem(1, enchant.addToItem(item1, 1));
                     player.getInventory().clear(player.getInventory().getHeldItemSlot());
                     player.closeInventory();
-                    player.sendMessage(ChatColor.RED + "Enchant successfully applied!");
+                    player.sendMessage(ChatColor.GREEN + "Enchant successfully applied!");
                     break;
                 case 2:
                     if (player.getInventory().getItem(2).getType() == null) break;
@@ -142,7 +142,7 @@ public class EnchantListener implements Listener {
                     player.getInventory().setItem(2, enchant.addToItem(item2, 1));
                     player.getInventory().clear(player.getInventory().getHeldItemSlot());
                     player.closeInventory();
-                    player.sendMessage(ChatColor.RED + "Enchant successfully applied!");
+                    player.sendMessage(ChatColor.GREEN + "Enchant successfully applied!");
                     break;
                 case 3:
                     if (player.getInventory().getItem(3).getType() == null) break;
@@ -155,7 +155,7 @@ public class EnchantListener implements Listener {
                     player.getInventory().setItem(3, enchant.addToItem(item3, 1));
                     player.getInventory().clear(player.getInventory().getHeldItemSlot());
                     player.closeInventory();
-                    player.sendMessage(ChatColor.RED + "Enchant successfully applied!");
+                    player.sendMessage(ChatColor.GREEN + "Enchant successfully applied!");
                     break;
                 case 4:
                     if (player.getInventory().getItem(4).getType() == null) break;
@@ -168,7 +168,7 @@ public class EnchantListener implements Listener {
                     player.getInventory().setItem(4, enchant.addToItem(item4, 1));
                     player.getInventory().clear(player.getInventory().getHeldItemSlot());
                     player.closeInventory();
-                    player.sendMessage(ChatColor.RED + "Enchant successfully applied!");
+                    player.sendMessage(ChatColor.GREEN + "Enchant successfully applied!");
                     break;
                 case 5:
                     if (player.getInventory().getItem(5).getType() == null) break;
@@ -181,20 +181,20 @@ public class EnchantListener implements Listener {
                     player.getInventory().setItem(5, enchant.addToItem(item5, 1));
                     player.getInventory().clear(player.getInventory().getHeldItemSlot());
                     player.closeInventory();
-                    player.sendMessage(ChatColor.RED + "Enchant successfully applied!");
+                    player.sendMessage(ChatColor.GREEN + "Enchant successfully applied!");
                     break;
                 case 6:
                     if (player.getInventory().getItem(6).getType() == null) break;
                     if(!enchant.getApplicableTo().getItems().contains(player.getInventory().getItem(6).getType())){
                         player.closeInventory();
-                        player.sendMessage(ChatColor.RED + "This enchant can not be applied to this item!");
+                        player.sendMessage(ChatColor.GREEN + "This enchant can not be applied to this item!");
                         break;
                     }
                     ItemStack item6 = player.getInventory().getItem(6);
                     player.getInventory().setItem(6, enchant.addToItem(item6, 1));
                     player.getInventory().clear(player.getInventory().getHeldItemSlot());
                     player.closeInventory();
-                    player.sendMessage(ChatColor.RED + "Enchant successfully applied!");
+                    player.sendMessage(ChatColor.GREEN + "Enchant successfully applied!");
                     break;
                 case 7:
                     if (player.getInventory().getItem(7).getType() == null) break;
@@ -207,7 +207,7 @@ public class EnchantListener implements Listener {
                     player.getInventory().setItem(7, enchant.addToItem(item7, 1));
                     player.getInventory().clear(player.getInventory().getHeldItemSlot());
                     player.closeInventory();
-                    player.sendMessage(ChatColor.RED + "Enchant successfully applied!");
+                    player.sendMessage(ChatColor.GREEN + "Enchant successfully applied!");
                     break;
                 case 8:
                     if (player.getInventory().getItem(8).getType() == null) break;
@@ -220,7 +220,7 @@ public class EnchantListener implements Listener {
                     player.getInventory().setItem(8, enchant.addToItem(item8, 1));
                     player.getInventory().clear(player.getInventory().getHeldItemSlot());
                     player.closeInventory();
-                    player.sendMessage(ChatColor.RED + "Enchant successfully applied!");
+                    player.sendMessage(ChatColor.GREEN + "Enchant successfully applied!");
                     break;
             }
         }
