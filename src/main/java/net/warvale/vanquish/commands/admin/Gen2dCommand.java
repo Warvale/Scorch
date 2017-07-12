@@ -1,8 +1,8 @@
-package net.warvale.vanquish.commands.admin;
+package main.java.net.warvale.vanquish.commands.admin;
 
-import net.warvale.vanquish.commands.AbstractCommand;
-import net.warvale.vanquish.exceptions.CommandException;
-import net.warvale.vanquish.guilds.regions.RegionMapGen;
+import main.java.net.warvale.vanquish.commands.AbstractCommand;
+import main.java.net.warvale.vanquish.exceptions.CommandException;
+import main.java.net.warvale.vanquish.guilds.regions.RegionMapGen;
 import org.bukkit.*;
 import org.bukkit.command.CommandSender;
 

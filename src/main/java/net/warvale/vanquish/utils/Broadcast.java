@@ -1,6 +1,6 @@
-package net.warvale.vanquish.utils;
+package main.java.net.warvale.vanquish.utils;
 
-import net.warvale.vanquish.Main;
+import main.java.net.warvale.vanquish.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

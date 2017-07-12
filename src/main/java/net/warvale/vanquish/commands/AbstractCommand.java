@@ -1,8 +1,9 @@
-package net.warvale.vanquish.commands;
+package main.java.net.warvale.vanquish.commands;
 
-import net.warvale.vanquish.Main;
+import main.java.net.warvale.vanquish.Main;
+import main.java.net.warvale.vanquish.exceptions.CommandException;
 import org.bukkit.command.CommandSender;
-import net.warvale.vanquish.exceptions.CommandException;
+
 import java.util.List;
 
 public abstract class AbstractCommand extends Parser {

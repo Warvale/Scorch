@@ -1,4 +1,4 @@
-package net.warvale.vanquish.exceptions;
+package main.java.net.warvale.vanquish.exceptions;
 
 public class CommandException extends Exception {
 

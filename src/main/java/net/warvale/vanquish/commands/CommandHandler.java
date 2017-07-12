@@ -1,21 +1,22 @@
-package net.warvale.vanquish.commands;
+package main.java.net.warvale.vanquish.commands;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
-import net.warvale.vanquish.commands.admin.Gen2dCommand;
+import main.java.net.warvale.vanquish.Main;
+import main.java.net.warvale.vanquish.commands.admin.Gen2dCommand;
+import main.java.net.warvale.vanquish.commands.admin.SetObsidianInLavaDecayCommand;
+import main.java.net.warvale.vanquish.enchantments.EnchantsCommand;
+import main.java.net.warvale.vanquish.enchantments.GiveEnchantBookCommand;
+import main.java.net.warvale.vanquish.guilds.commands.GuildCommand;
+import main.java.net.warvale.vanquish.utils.Broadcast;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandException;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.command.TabCompleter;
-
-import net.warvale.vanquish.Main;
-import net.warvale.vanquish.commands.admin.SetObsidianInLavaDecayCommand;
-import net.warvale.vanquish.guilds.commands.GuildCommand;
-import net.warvale.vanquish.utils.Broadcast;
 
 public class CommandHandler implements CommandExecutor, TabCompleter {
     private final Main plugin;
@@ -123,11 +124,11 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
         // Admin
         cmds.add(new SetObsidianInLavaDecayCommand());
         cmds.add(new Gen2dCommand());
+        cmds.add(new GiveEnchantBookCommand());
+
         // Basic
         cmds.add(new GuildCommand());
-
-
-
+        cmds.add(new EnchantsCommand());
 
         for (AbstractCommand cmd : cmds) {
             PluginCommand pCmd = plugin.getCommand(cmd.getName());

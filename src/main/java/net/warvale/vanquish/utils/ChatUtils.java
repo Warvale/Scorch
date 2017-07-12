@@ -1,4 +1,4 @@
-package net.warvale.vanquish.utils;
+package main.java.net.warvale.vanquish.utils;
 
 import org.bukkit.ChatColor;
 

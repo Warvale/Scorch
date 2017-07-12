@@ -1,17 +1,21 @@
-package net.warvale.vanquish;
+package main.java.net.warvale.vanquish;
 
-import net.warvale.vanquish.commands.CommandHandler;
-import net.warvale.vanquish.guilds.FirstJoinGuildStats;
-import net.warvale.vanquish.guilds.regions.RegionMapGen;
-import net.warvale.vanquish.listeners.BlockListener;
-import net.warvale.vanquish.listeners.PlayerListener;
-import net.warvale.vanquish.physics.ObsidianToLava;
-import net.warvale.vanquish.utils.Broadcast;
+import main.java.net.warvale.vanquish.commands.CommandHandler;
+import main.java.net.warvale.vanquish.enchantments.CustomEnchantment;
+import main.java.net.warvale.vanquish.enchantments.EnchantListener;
+import main.java.net.warvale.vanquish.enchantments.enchants.*;
+import main.java.net.warvale.vanquish.guilds.FirstJoinGuildStats;
+import main.java.net.warvale.vanquish.guilds.regions.RegionMapGen;
+import main.java.net.warvale.vanquish.listeners.BlockListener;
+import main.java.net.warvale.vanquish.listeners.PlayerListener;
+import main.java.net.warvale.vanquish.physics.ObsidianToLava;
+import main.java.net.warvale.vanquish.utils.Broadcast;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.util.Hashtable;
 import java.util.logging.Level;
 
 /**
@@ -20,6 +24,7 @@ import java.util.logging.Level;
 public class Main extends JavaPlugin {
     private static Main instance;
     private static CommandHandler cmds;
+    private static Hashtable<String, CustomEnchantment> enchantments = new Hashtable<>();
     @Override
     public void onEnable(){
         
@@ -36,18 +41,21 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new BlockListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
         Bukkit.getPluginManager().registerEvents(new FirstJoinGuildStats(this), this);
-
+        Bukkit.getPluginManager().registerEvents(new EnchantListener(), this);
 
     }
     @Override
     public void onDisable(){
+        enchantments.clear();
         getLogger().info("Disabled Vanquish");
     }
 
-    private void initialise() {
+    private void initialise(){
 
         cmds = new CommandHandler(this);
         cmds.registerCommands();
+
+        loadEnchantments();
 
         ObsidianToLava.setDelay(5);
         new ObsidianToLava().runTaskTimer(this, 0, 20);
@@ -62,6 +70,22 @@ public class Main extends JavaPlugin {
             e.printStackTrace();
         }
 
+    }
+
+    private static void loadEnchantments() {
+        enchantments.put("THUNDERING STRIKE", new ThunderingStrike());
+        enchantments.put("LAST HOPE", new LastHope());
+        enchantments.put("ENDURANCE", new Endurance());
+        enchantments.put("LIFE STEAL", new LifeSteal());
+        enchantments.put("EXPERIENCE STEAL", new EXPSteal());
+        enchantments.put("LIFE ESSENCE", new LifeEssence());
+    }
+
+    public static boolean isEnchantmentRegistered(String enchantment){
+        return enchantments.containsKey(enchantment.toUpperCase());
+    }
+    public static CustomEnchantment getEnchantment(String name) {
+        return enchantments.get(name.toUpperCase());
     }
 
     public static Main get(){
