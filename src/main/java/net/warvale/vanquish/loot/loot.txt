@@ -1,1 +1,61 @@
-Loot code goes here
+This document does NOT count rarity. It just lists items.
+
+* Global Loot
+- Minerals, ores (dias, emeralds, gold, iron, etc.)
+- Crops or seeds
+- Basic food like apples, carrots
+- Enchanted armor with custom names
+- All custom enchant items
+
+* Forest Loot
+- Enchanted wooden swords/sticks, named things like "Oak Stick"
+- Lots of regular sticks
+- Oak logs
+- Shears, leaf blocks
+
+* Mycelium Loot
+- Mycelium blocks
+- Mushrooms (both kinds)
+- Mushroom soup
+- A hoe/farming supplies
+- Water buckets
+
+* Graveyard Loot
+- Bones
+- Shovels (enchanted or not enchanted)
+- Skeleton skulls 
+
+* Toxic Loot
+- Slime blocks
+- Slime balls
+- Lava buckets
+
+* Mountain Loot
+- Pickaxes (enchanted or not enchanted)
+- Shovels
+- Axes
+- Leeds
+
+
+* Icy Loot
+- Snowballs
+- Very good enchanted leather gear
+- Snow blocks
+- Water bucket
+- Ice blocks
+
+* Tropical Loot
+- Flint and steel
+- Sand blocks
+- Lava bucket
+
+* Desert Loot
+- Dead bushes
+
+* Mesa Loot
+- Different types of stained clay
+- Gold ore
+- Wood planks (different types)
+- Cobwebs
+- Sticks
+- Pickaxes
