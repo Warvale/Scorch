@@ -1,4 +1,4 @@
-package net.warvale.vanquish.listeners;
+package main.java.net.warvale.vanquish.listeners;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -9,9 +9,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
  */
 public class PlayerListener implements Listener {
     @EventHandler
-    public void GuildPlayerMove(PlayerMoveEvent e) {
+    public void GuildPlayerMove(PlayerMoveEvent event) {
 
     }
-
-
 }

@@ -1,4 +1,4 @@
-package net.warvale.vanquish.guilds.regions;
+package main.java.net.warvale.vanquish.guilds.regions;
 
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -53,10 +53,10 @@ public class RegionMapGen {
         JSONParser parser = new JSONParser();
 
 
-            Object obj = parser.parse(new FileReader(path));
-            JSONObject jo = (JSONObject) obj;
-            JSONArray omap = (JSONArray) jo.get("map");
-            return omap;
+        Object obj = parser.parse(new FileReader(path));
+        JSONObject jo = (JSONObject) obj;
+        JSONArray omap = (JSONArray) jo.get("map");
+        return omap;
 
 
 

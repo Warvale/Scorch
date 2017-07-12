@@ -1,6 +1,6 @@
-package net.warvale.vanquish.listeners;
+package main.java.net.warvale.vanquish.listeners;
 
-import net.warvale.vanquish.physics.ObsidianToLava;
+import main.java.net.warvale.vanquish.physics.ObsidianToLava;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -23,6 +23,10 @@ public class BlockListener implements Listener {
         int x = event.getBlockPlaced().getX();
         int i = event.getBlockPlaced().getY();
         int z = event.getBlockPlaced().getZ();
+        if(event.getBlockPlaced().getType().equals(Material.END_CRYSTAL)){
+            event.setCancelled(true);
+            return;
+        }
         for (int y = i; y > 0; y--){
             if (Bukkit.getWorld("world").getBlockAt(x, y, z).getType().equals(Material.LAVA) || Bukkit.getWorld("world").getBlockAt(x, y, z).getType().equals(Material.STATIONARY_LAVA)){
                 event.setCancelled(true);
