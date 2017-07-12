@@ -1,6 +1,7 @@
 package net.warvale.vanquish.guilds.regions;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.json.simple.JSONArray;
@@ -28,19 +29,23 @@ public class RegionMapGen {
     }
 
     public static void genRegionMap(World world) {
-
+        int islando = 0;
+        boolean lastLava = true;
         double sizexz = world.getWorldBorder().getSize();
         System.out.println("Generating 2d world map, worldborder size: " + sizexz);
         for (double x=0; x <= sizexz; x++) {
             for (double z=0; z <= sizexz; z++) {
                 Block currentBlock = world.getBlockAt(new Location(world, x,lavalevel,z));
-                switch (currentBlock.getType()) {
-                    case LAVA:
-                        map.add(0);
-                        break;
-
-                    default: map.add(1);
-                        break;
+                if (currentBlock.getType().equals(Material.LAVA)) {
+                    lastLava = true;
+                } else {
+                if (lastLava) {
+                    islando++;
+                    map.add(islando);
+                } else {
+                    map.add(islando);
+                }
+                lastLava = false;
                 }
 
             }
