@@ -1,4 +1,4 @@
-package main.java.net.warvale.vanquish.guilds.regions;
+package net.warvale.vanquish.guilds.regions;
 
 import org.bukkit.Location;
 import org.bukkit.Material;

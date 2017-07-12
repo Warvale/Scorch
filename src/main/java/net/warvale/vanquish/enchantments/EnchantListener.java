@@ -1,7 +1,7 @@
-package main.java.net.warvale.vanquish.enchantments;
+package net.warvale.vanquish.enchantments;
 
-import main.java.net.warvale.vanquish.Main;
-import main.java.net.warvale.vanquish.utils.EnchantUtils;
+import net.warvale.vanquish.Main;
+import net.warvale.vanquish.utils.EnchantUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

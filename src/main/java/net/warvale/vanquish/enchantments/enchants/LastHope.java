@@ -1,8 +1,8 @@
-package main.java.net.warvale.vanquish.enchantments.enchants;
+package net.warvale.vanquish.enchantments.enchants;
 
-import main.java.net.warvale.vanquish.enchantments.CustomEnchantment;
-import main.java.net.warvale.vanquish.enchantments.ItemsEnum;
-import main.java.net.warvale.vanquish.enchantments.Rarity;
+import net.warvale.vanquish.enchantments.CustomEnchantment;
+import net.warvale.vanquish.enchantments.ItemsEnum;
+import net.warvale.vanquish.enchantments.Rarity;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.LivingEntity;

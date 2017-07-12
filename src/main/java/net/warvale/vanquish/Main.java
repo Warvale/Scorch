@@ -1,15 +1,15 @@
-package main.java.net.warvale.vanquish;
+package net.warvale.vanquish;
 
-import main.java.net.warvale.vanquish.commands.CommandHandler;
-import main.java.net.warvale.vanquish.enchantments.CustomEnchantment;
-import main.java.net.warvale.vanquish.enchantments.EnchantListener;
-import main.java.net.warvale.vanquish.enchantments.enchants.*;
-import main.java.net.warvale.vanquish.guilds.FirstJoinGuildStats;
-import main.java.net.warvale.vanquish.guilds.regions.RegionMapGen;
-import main.java.net.warvale.vanquish.listeners.BlockListener;
-import main.java.net.warvale.vanquish.listeners.PlayerListener;
-import main.java.net.warvale.vanquish.physics.ObsidianToLava;
-import main.java.net.warvale.vanquish.utils.Broadcast;
+import net.warvale.vanquish.commands.CommandHandler;
+import net.warvale.vanquish.enchantments.CustomEnchantment;
+import net.warvale.vanquish.enchantments.EnchantListener;
+import net.warvale.vanquish.enchantments.enchants.*;
+import net.warvale.vanquish.guilds.FirstJoinGuildStats;
+import net.warvale.vanquish.guilds.regions.RegionMapGen;
+import net.warvale.vanquish.listeners.BlockListener;
+import net.warvale.vanquish.listeners.PlayerListener;
+import net.warvale.vanquish.physics.ObsidianToLava;
+import net.warvale.vanquish.utils.Broadcast;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.parser.ParseException;

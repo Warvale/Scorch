@@ -1,8 +1,8 @@
-package main.java.net.warvale.vanquish.enchantments;
+package net.warvale.vanquish.enchantments;
 
-import main.java.net.warvale.vanquish.Main;
-import main.java.net.warvale.vanquish.commands.AbstractCommand;
-import main.java.net.warvale.vanquish.exceptions.CommandException;
+import net.warvale.vanquish.Main;
+import net.warvale.vanquish.commands.AbstractCommand;
+import net.warvale.vanquish.exceptions.CommandException;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;

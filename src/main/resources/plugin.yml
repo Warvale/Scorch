@@ -1,6 +1,6 @@
 name: Vanquish
 version: 0.1
-main: main.java.net.warvale.vanquish.Main
+main: net.warvale.vanquish.Main
 author: Warvale Development Team
 commands:
   setobsidiandecay:

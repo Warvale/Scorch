@@ -1,17 +1,17 @@
-package main.java.net.warvale.vanquish.guilds.commands;
+package net.warvale.vanquish.guilds.commands;
+
+import net.warvale.vanquish.commands.AbstractCommand;
+import net.warvale.vanquish.exceptions.CommandException;
+import net.warvale.vanquish.utils.ChatUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import main.java.net.warvale.vanquish.commands.AbstractCommand;
-import main.java.net.warvale.vanquish.exceptions.CommandException;
-import main.java.net.warvale.vanquish.utils.ChatUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public class GuildCommand extends AbstractCommand {
 
