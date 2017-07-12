@@ -9,5 +9,5 @@ commands:
     description: All guild features.
     aliases: [g]
   gen2d:
-    description: Generates a 2d array of the hole world and prints it to console, May cause lag.
+    description: Generates a 2d array of the whole world and prints it to console. May cause lag.
     permission: vanquish.gen2d
