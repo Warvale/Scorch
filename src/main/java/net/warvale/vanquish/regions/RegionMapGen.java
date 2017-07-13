@@ -29,7 +29,8 @@ public class RegionMapGen {
         for (double x=0; x < sizexz; x++) {
             for (double z=0; z < sizexz; z++) {
                 Block currentBlock = world.getBlockAt(new Location(world, x,lavalevel,z));
-                if (currentBlock.getType().equals(Material.LAVA)) {
+
+                if (currentBlock.getType().equals(Material.LAVA) ||  currentBlock.getType().equals(Material.STATIONARY_LAVA)) {
                     // lava block
                     map[(int)x][(int)z] = 0;
                 } else {
@@ -39,7 +40,7 @@ public class RegionMapGen {
 
             }
         }
-        System.out.println("Finished generating 2d world map: " + map);
+        System.out.println("Finished generating 2d world map: " + map.toString());
     }
 
 //    public static int[][] getRegionMapFromFile(String path) throws IOException, ParseException {
