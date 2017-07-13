@@ -11,7 +11,7 @@ import org.bukkit.block.Block;
  * Created by Ron on 9/7/2017.
  */
 public class RegionMapGen {
-    @Getter @Setter private static int map[][] ={{},{}};
+    @Getter @Setter private static int map[][] = new int[1][1];
     @Getter @Setter public static double lavalevel = 20;
 
     public static void setMap(int[][] map) {
@@ -24,11 +24,11 @@ public class RegionMapGen {
 
     public static void genRegionMap(World world) {
         double sizexz = world.getWorldBorder().getSize();
+        map = new int[(int)sizexz][(int)sizexz];
         System.out.println("Generating 2d world map, worldborder size: " + sizexz);
         for (double x=0; x < sizexz; x++) {
             for (double z=0; z < sizexz; z++) {
                 Block currentBlock = world.getBlockAt(new Location(world, x,lavalevel,z));
-                System.out.println("[DEBUG] [Vanquish] x"+x+"z"+z+". ");
                 if (currentBlock.getType().equals(Material.LAVA)) {
                     // lava block
                     map[(int)x][(int)z] = 0;
