@@ -1,0 +1,10 @@
+* Release Crate
+- obtained when joining on release
+
+* Vote Crate
+- obtained when voting
+
+* Donator Crate(s)
+- obtained when donating
+
+This list is not complete and is due to change.
