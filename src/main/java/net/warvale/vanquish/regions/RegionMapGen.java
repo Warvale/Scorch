@@ -28,6 +28,7 @@ public class RegionMapGen {
         for (double x=0; x < sizexz; x++) {
             for (double z=0; z < sizexz; z++) {
                 Block currentBlock = world.getBlockAt(new Location(world, x,lavalevel,z));
+                System.out.println("[DEBUG] [Vanquish] x"+x+"z"+z+". ");
                 if (currentBlock.getType().equals(Material.LAVA)) {
                     // lava block
                     map[(int)x][(int)z] = 0;
