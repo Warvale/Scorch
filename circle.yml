@@ -1,7 +1,7 @@
 checkout:
   post:
     - mvn clean install
-    - cp -R ./target/GameCore.jar $CIRCLE_ARTIFACTS
+    - cp -R ./target/Vanquish.jar $CIRCLE_ARTIFACTS
 
 machine:
   java:
