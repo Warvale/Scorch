@@ -2,6 +2,8 @@ package net.warvale.vanquish.guilds.commands;
 
 import net.warvale.vanquish.commands.AbstractCommand;
 import net.warvale.vanquish.exceptions.CommandException;
+import net.warvale.vanquish.regions.RegionMapGen;
+import net.warvale.vanquish.utils.Broadcast;
 import net.warvale.vanquish.utils.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -54,6 +56,23 @@ public class GuildCommand extends AbstractCommand {
 			return true;
 		}
 		switch (args[0]){
+			case "adminclaim":
+				if (args.length != 2) {
+					player.sendMessage(guildsPrefix + "Usage: /guild adminclaim <guild name>");
+					break;
+				}
+				if (player.hasPermission("warvale.adminclaim")) {
+				    player.sendMessage(guildsPrefix + "You do not have permission to use that command!");
+				    break;
+                }
+				String guildname = plugin.getConfig().getString("Player-Data."+player.getUniqueId().toString()+".GuildName");
+                String[][] omap = RegionMapGen.getMap();
+                omap[(int)player.getLocation().getX()][(int)player.getLocation().getZ()] = guildname;
+                RegionMapGen.setMap(omap);
+                Broadcast.toPlayer(player, Broadcast.BroadcastType.FAILURE, "[WARNING] This command is a admin-only command and may cause unexpected behaviour.");
+                player.sendMessage(guildsPrefix + "Claimed the block that you are standing on.");
+
+				break;
 			case "create": //I just copied the code from the previous create class
 				if (args.length != 2){
 					player.sendMessage(guildsPrefix + "/guild create <name>");
