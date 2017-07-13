@@ -7,6 +7,8 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
+import java.util.Arrays;
+
 /**
  * Created by Ron on 9/7/2017.
  */
@@ -40,7 +42,16 @@ public class RegionMapGen {
 
             }
         }
-        System.out.println("Finished generating 2d world map: " + map.toString());
+        String lineSeparator = System.lineSeparator();
+        StringBuilder sb = new StringBuilder();
+
+        for (int[] row : map) {
+            sb.append(Arrays.toString(row))
+                    .append(lineSeparator);
+        }
+
+        String result = sb.toString();
+        System.out.println("Finished generating 2d world map: " + result);
     }
 
 //    public static int[][] getRegionMapFromFile(String path) throws IOException, ParseException {
