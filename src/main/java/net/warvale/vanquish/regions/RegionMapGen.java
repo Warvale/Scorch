@@ -1,4 +1,4 @@
-package net.warvale.vanquish.guilds.regions;
+package net.warvale.vanquish.regions;
 
 import lombok.Getter;
 import lombok.Setter;

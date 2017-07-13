@@ -2,7 +2,7 @@ package net.warvale.vanquish.commands.admin;
 
 import net.warvale.vanquish.commands.AbstractCommand;
 import net.warvale.vanquish.exceptions.CommandException;
-import net.warvale.vanquish.guilds.regions.RegionMapGen;
+import net.warvale.vanquish.regions.RegionMapGen;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
