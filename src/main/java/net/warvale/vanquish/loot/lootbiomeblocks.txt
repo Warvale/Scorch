@@ -1,0 +1,26 @@
+* Forest Loot
+- emerald block at level 0
+
+* Mycelium Loot
+- diamond block at level 0
+
+* Graveyard Loot
+- gold block at level 0
+
+* Toxic Loot
+- iron block at level 0
+
+* Mountain Loot
+- redstone block at level 0
+
+* Icy Loot
+- emerald ore at level 0
+
+* Tropical Loot
+- diamond ore at level 0
+
+* Desert Loot
+- gold ore at level 0
+
+* Mesa Loot
+- redstone ore at level 0
