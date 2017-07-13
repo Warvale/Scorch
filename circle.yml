@@ -1,0 +1,8 @@
+checkout:
+  post:
+    - mvn clean install
+    - cp -R ./target/GameCore.jar $CIRCLE_ARTIFACTS
+
+machine:
+  java:
+    version: oraclejdk8
