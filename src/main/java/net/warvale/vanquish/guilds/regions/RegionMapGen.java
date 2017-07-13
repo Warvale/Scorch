@@ -1,51 +1,39 @@
 package net.warvale.vanquish.guilds.regions;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * Created by Ron on 9/7/2017.
  */
 public class RegionMapGen {
-    private static ArrayList map = new ArrayList<>();
-    public static double lavalevel = 20;
+    @Getter @Setter private static int map[][] ={{},{}};
+    @Getter @Setter public static double lavalevel = 20;
 
-    public static void setMap(ArrayList map) {
+    public static void setMap(int[][] map) {
         RegionMapGen.map = map;
     }
 
-    public static ArrayList getMap() {
+    public static int[][] getMap() {
         return map;
     }
 
     public static void genRegionMap(World world) {
-        int islando = 0;
-        boolean lastLava = true;
         double sizexz = world.getWorldBorder().getSize();
         System.out.println("Generating 2d world map, worldborder size: " + sizexz);
-        for (double x=0; x <= sizexz; x++) {
-            for (double z=0; z <= sizexz; z++) {
+        for (double x=0; x < sizexz; x++) {
+            for (double z=0; z < sizexz; z++) {
                 Block currentBlock = world.getBlockAt(new Location(world, x,lavalevel,z));
                 if (currentBlock.getType().equals(Material.LAVA)) {
-                    lastLava = true;
+                    // lava block
+                    map[(int)x][(int)z] = 0;
                 } else {
-                if (lastLava) {
-                    islando++;
-                    map.add(islando);
-                } else {
-                    map.add(islando);
-                }
-                lastLava = false;
+                    // non lava block
+                    map[(int)x][(int)z] = 1;
                 }
 
             }
@@ -53,35 +41,21 @@ public class RegionMapGen {
         System.out.println("Finished generating 2d world map: " + map);
     }
 
-    public static ArrayList getRegionMapFromFile(String path) throws IOException, ParseException {
+//    public static int[][] getRegionMapFromFile(String path) throws IOException, ParseException {
+//
+//        JSONParser parser = new JSONParser();
+//TODO: Make getRegionMapFromFile(path) work with the new changes.
+//            Commented out for now.
+//        Object obj = parser.parse(new FileReader(path));
+//        JSONObject jo = (JSONObject) obj;
+//        JSONArray omap = (JSONArray) jo.get("map");
+//        return omap;
+//
+//
+//
+//    }
 
-        JSONParser parser = new JSONParser();
 
-
-        Object obj = parser.parse(new FileReader(path));
-        JSONObject jo = (JSONObject) obj;
-        JSONArray omap = (JSONArray) jo.get("map");
-        return omap;
-
-
-
-    }
-
-    public double getLavalevel() {
-        return lavalevel;
-    }
-
-    public void setLavalevel(double lavalevel) {
-        this.lavalevel = lavalevel;
-    }
-
-    public ArrayList<Integer> getRegionMap() {
-        return map;
-    }
-
-    public void setRegionMap(ArrayList<Integer> map) {
-        this.map = map;
-    }
 
 
 }
