@@ -16,7 +16,7 @@ public class Broadcast {
     }
 
     public static void toConsole(Level level, String message) {
-        Main.get().getLogger().log(level, "[Vanquish v" + "0.1" + "] " + message);
+        Main.get().getLogger().log(level, "[Scorch v" + "0.1" + "] " + message);
     }
 
     public static void toPlayer(Player player, String message) {
@@ -29,21 +29,21 @@ public class Broadcast {
 
     public static void toPlayer(Player player, BroadcastType broadcastType, String message) {
         if(broadcastType == BroadcastType.SUCCESS) {
-            player.sendMessage(ChatColor.DARK_GREEN + "[Vanquish] " + ChatColor.GREEN + message);
+            player.sendMessage(ChatColor.DARK_GREEN + "[Scorch] " + ChatColor.GREEN + message);
         } else if(broadcastType == BroadcastType.FAILURE) {
-            player.sendMessage(ChatColor.DARK_RED + "[Vanquish] " + ChatColor.RED + message);
+            player.sendMessage(ChatColor.DARK_RED + "[Scorch] " + ChatColor.RED + message);
         } else if(broadcastType == BroadcastType.BASIC) {
-            player.sendMessage(ChatColor.GOLD + "[Vanquish] " + ChatColor.YELLOW + message);
+            player.sendMessage(ChatColor.GOLD + "[Scorch] " + ChatColor.YELLOW + message);
         }
     }
 
     public static void toSender(CommandSender sender, BroadcastType broadcastType, String message) {
         if(broadcastType == BroadcastType.SUCCESS) {
-            sender.sendMessage(ChatColor.DARK_GREEN + "[Vanquish] " + ChatColor.GREEN + message);
+            sender.sendMessage(ChatColor.DARK_GREEN + "[Scorch] " + ChatColor.GREEN + message);
         } else if(broadcastType == BroadcastType.FAILURE) {
-            sender.sendMessage(ChatColor.DARK_RED + "[Vanquish] " + ChatColor.RED + message);
+            sender.sendMessage(ChatColor.DARK_RED + "[Scorch] " + ChatColor.RED + message);
         } else if(broadcastType == BroadcastType.BASIC) {
-            sender.sendMessage(ChatColor.GOLD + "[Vanquish] " + ChatColor.YELLOW + message);
+            sender.sendMessage(ChatColor.GOLD + "[Scorch] " + ChatColor.YELLOW + message);
         }
     }
 }
