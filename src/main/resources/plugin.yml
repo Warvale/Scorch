@@ -1,6 +1,6 @@
 name: Vanquish
 version: 0.1
-main: net.warvale.vanquish.Main
+main: net.warvale.scorch.Main
 author: Warvale Development Team
 commands:
   setobsidiandecay:
@@ -10,7 +10,7 @@ commands:
     aliases: [g]
   gen2d:
     description: Generates a 2d array of the whole world and prints it to console. May cause lag.
-    permission: vanquish.gen2d
+    permission: scorch.gen2d
   enchantments:
     description: See a list of all custom enchantments.
     aliases: [enchants]
