@@ -1,6 +1,6 @@
-package main.java.net.warvale.vanquish.loot;
+package net.warvale.vanquish.loot;
 
-import main.java.net.warvale.vanquish.Main;
+import net.warvale.vanquish.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
