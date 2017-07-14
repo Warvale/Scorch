@@ -1,0 +1,44 @@
+[How power, beds, territories, and island regions work in the game: Explained]
+
+* If you are not in a guild, you CANNOT claim an island
+* If you are not in a guild, you CANNOT break a bed
+* If you are not in a guild, you CANNOT get power or territory
+
+Once you make or join a guild, you are now able to: 
+- Claim unclaimed islands
+- Take over another guild's base
+- Gain power and territory
+- Create alliances with other guilds
+
+How claiming unclaimed land works:
+- Find an island with a bed on it that is not claimed. 
+   + You will know if it is claimed once you walk into the island region and it says "Entering unknown territory"
+- Attempt to sleep in the bed.
+   + If it is day, you will still be able to claim it regularly
+- Once you interact with the bed, that island is now yours.
+   + You can protect it, build on it, break it, and safeguard the bed from potential attackers.
+   
+How claiming another guild's land works:
+- Find an island that is owned by a guild.
+   + You will know if it is a guild's if there's structures on it, or you walk in the region and it says "Claimed by x"
+- Locate the bed of the island, and sleep in it.
+   + You will then gain access to the island. Members of the guild who previously owned it can no longer break or place.
+   + There will be a 1-hour shield over your newly claimed island. Once you take over an island, people cannot take it back for 1 hour.
+   + However, you will not have a shield for claiming an unclaimed island. There is no shield for that. 
+   + The shield prevents you from losing the island access. You can still kill or be killed. 
+- Protect the bed and kick out the previous members entirely. 
+
+How owning an island affects your power:
+- When you own an island, you have 100% access to edit it and protect it. Your bed maintains the protection. 
+- When you die, you will respawn on the island with the bed. If you have multiple-owned islands, the guild leader can
+choose which island is the "hub" or respawn island. You will NOT be able to fast-travel or directly teleport to islands that
+are not your hub. You can, however, teleport to a guild member who happens to be there. 
+- The more power or islands you own, the easier it is to gain resources to mass-protect them. 
+
+* The goal of owning or being in a Guild is to have absolute domination, or a monopoly. Once one single guild grows huge to power, if 
+any smaller guilds can unite to take it down, then the power is split between a lot of people and the process reboots. The point of the
+game is to grow big and maintain your power before being removed from it. 
+
+- - - -
+
+This document may be changed, edited, or revised at any time to match the intensity we hope to have for the game. 
