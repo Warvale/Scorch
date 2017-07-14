@@ -13,6 +13,7 @@ import net.warvale.scorch.utils.Broadcast;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.logging.Level;
 
@@ -30,10 +31,10 @@ public class Main extends JavaPlugin {
         
     	try {
             initialise();
-            Broadcast.toConsole(Level.INFO, "Successfully enabled!");
+            Broadcast.toConsole(Level.INFO, "Successfully enabled Scorch!");
         } catch(Exception ex) {
             ex.printStackTrace();
-            getLogger().log(Level.WARNING, "Failed to enable LobbyCore!");
+            getLogger().log(Level.WARNING, "Failed to enable Scorch!");
         }
         //Register Events Here
         Bukkit.getPluginManager().registerEvents(new RegionMapListener(), this);
@@ -46,7 +47,7 @@ public class Main extends JavaPlugin {
     @Override
     public void onDisable(){
         enchantments.clear();
-        getLogger().info("Disabled Vanquish");
+        getLogger().info("Disabled Scorch");
     }
 
     private void initialise(){
@@ -85,6 +86,12 @@ public class Main extends JavaPlugin {
     }
     public static CustomEnchantment getEnchantment(String name) {
         return enchantments.get(name.toUpperCase());
+    }
+
+    public static ArrayList<CustomEnchantment> getEnchantments(){
+        ArrayList<CustomEnchantment> e = new ArrayList<>();
+        e.addAll(enchantments.values());
+        return e;
     }
 
     public static Main get(){

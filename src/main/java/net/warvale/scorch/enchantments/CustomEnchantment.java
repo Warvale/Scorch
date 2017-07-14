@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
 
 /** To make a custom enchant:
  * 1. Make a class in the package enchantments.enchants and have it extend this class.
@@ -150,6 +151,19 @@ public abstract class CustomEnchantment {
             }
         }
         return list;
+    }
+
+    public static ItemStack getRandomEnchantItem(Rarity r){
+        List<CustomEnchantment> enchants = new ArrayList<>();
+        for(CustomEnchantment e : Main.getEnchantments()){
+            if (e.getRarity().equals(r)){
+                enchants.add(e);
+            }
+        }
+        if (enchants.isEmpty()){return null;}
+        int i = enchants.size();
+        int n = ThreadLocalRandom.current().nextInt(0, i);
+        return enchants.get(n).getItem();
     }
 
 }
