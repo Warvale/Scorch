@@ -16,6 +16,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.logging.Level;
 
@@ -90,6 +91,12 @@ public class Main extends JavaPlugin {
     }
     public static CustomEnchantment getEnchantment(String name) {
         return enchantments.get(name.toUpperCase());
+    }
+
+    public static ArrayList<CustomEnchantment> getEnchantments(){
+        ArrayList<CustomEnchantment> e = new ArrayList<>();
+        e.addAll(enchantments.values());
+        return e;
     }
 
     public static Main get(){
