@@ -6,7 +6,13 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -57,19 +63,28 @@ public class RegionMapGen {
         System.out.println("Finished generating 2d world map: " + map.toString());
     }
 
-//    public static int[][] getRegionMapFromFile(String path) throws IOException, ParseException {
-//
-//        JSONParser parser = new JSONParser();
-//TODO: Make getRegionMapFromFile(path) work with the new changes.
-//            Commented out for now.
-//        Object obj = parser.parse(new FileReader(path));
-//        JSONObject jo = (JSONObject) obj;
-//        JSONArray omap = (JSONArray) jo.get("map");
-//        return omap;
-//
-//
-//
-//    }
+    public static String[][] getRegionMapFromFile(String path) throws IOException, ParseException {
+
+        JSONParser parser = new JSONParser();
+
+
+        Object obj = parser.parse(new FileReader(path));
+        JSONObject jo = (JSONObject) obj;
+        String omap = (String) jo.get("map");
+        String[][] oxmap = (String[][]) parser.parse(omap);
+        return oxmap;
+
+
+
+    }
+
+    public static void saveMapFile(String path) throws IOException{
+        JSONObject otemplate = new JSONObject();
+        otemplate.put("map", map.toString());
+        try (FileWriter file = new FileWriter(path)) {
+            file.write(otemplate.toJSONString());
+        }
+    }
 
 
 
