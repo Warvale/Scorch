@@ -161,9 +161,7 @@ public abstract class CustomEnchantment {
             }
         }
         if (enchants.isEmpty()){return null;}
-        int i = enchants.size();
-        int n = ThreadLocalRandom.current().nextInt(0, i);
-        return enchants.get(n).getItem();
+        return enchants.get(ThreadLocalRandom.current().nextInt(0, enchants.size())).getItem();
     }
 
 }
