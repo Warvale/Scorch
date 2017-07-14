@@ -89,6 +89,7 @@ public class Main extends JavaPlugin {
     public static boolean isEnchantmentRegistered(String enchantment){
         return enchantments.containsKey(enchantment.toUpperCase());
     }
+
     public static CustomEnchantment getEnchantment(String name) {
         return enchantments.get(name.toUpperCase());
     }
