@@ -1,9 +1,9 @@
-Vanquish
+Scorch
 ======
 
 ## Create and grow your Guild to raid enemy islands across a magma-split world. 
 
-### **Vanquish** is organized by Guilds, Regions (Islands), Loot and the Game Physics. 
+### **Scorch** is organized by Guilds, Regions (Islands), Loot and the Game Physics. 
 
 **Guilds**:
 Guilds are Vanquish's version of Factions: grow your guild and come to power by invading the enemy. Use special guild commands like invitation, guild roles, guild management commands, and guild comments to protect your power. Guilds can unite to expand their power and control to dominate the world.

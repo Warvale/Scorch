@@ -1,0 +1,76 @@
+{
+  "biomes": [
+    {
+      "name": "Mushroom Island",
+      "items": [
+        {
+          "type": "mushroom_soup",
+          "countMin": 2,
+          "countMax": 8,
+          "chance": 65
+        },
+        {
+          "type": "bread",
+          "countMin": 0,
+          "countMax": 32
+          "chance": 70
+        },
+        {
+          "type": "brown_mushroom",
+          "countMin": 2,
+          "countMax": 16,
+          "chance": 30
+        },
+        {
+          "type": "red_mushroom",
+          "countMin": 2,
+          "countMax": 16,
+          "chance": 30
+        }
+      ]
+    }
+  ],
+  "global": [
+    {
+      "type": "potato",
+      "countMin": 2,
+      "countMax": 32,
+      "chance": 15
+    },
+    {
+      "type": "carrot",
+      "countMin": 2,
+      "countMax": 32,
+      "chance": 15
+    },
+    {
+      "type": "wood_sword",
+      "countMin": 1,
+      "countMax": 1,
+      "chance": 40,
+      "max_sword_enchants": 5
+    },
+    {
+      "type": "stone_sword",
+      "countMin": 1,
+      "countMax": 1,
+      "chance": 20,
+      "max_sword_enchants": 4
+    },
+    {
+      "type": "iron_sword",
+      "countMin": 1,
+      "countMax": 1,
+      "chance": 5,
+      "max_sword_enchants": 3
+    },
+    {
+      "type": "diamond_sword",
+      "countMin": 1,
+      "countMax": 1,
+      "chance": 2,
+      "max_sword_enchants": 2
+    }
+
+  ]
+}
