@@ -1,7 +1,7 @@
 package net.warvale.vanquish.guilds.commands;
 
 import net.warvale.vanquish.commands.AbstractCommand;
-import net.warvale.vanquish.exceptions.CommandException;
+import net.warvale.vanquish.commands.CommandException;
 import net.warvale.vanquish.regions.RegionMapGen;
 import net.warvale.vanquish.utils.Broadcast;
 import net.warvale.vanquish.utils.ChatUtils;
@@ -33,7 +33,7 @@ public class GuildCommand extends AbstractCommand {
 		Object guildsPrefix = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("GuildsPrefix"));
 		if(args.length == 0){
 			player.sendMessage(ChatUtils.gray + "[" + ChatUtils.red + "Guilds" + ChatUtils.gray + "] ");
-			
+
 			player.sendMessage("");
 			player.sendMessage(ChatUtils.yellow + "General Commands");
 			player.sendMessage(ChatUtils.gold + "/Guild Info" + ChatUtils.gray + "- List information on your Guild.");

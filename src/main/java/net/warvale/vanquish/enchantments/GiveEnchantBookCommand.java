@@ -2,7 +2,7 @@ package net.warvale.vanquish.enchantments;
 
 import net.warvale.vanquish.Main;
 import net.warvale.vanquish.commands.AbstractCommand;
-import net.warvale.vanquish.exceptions.CommandException;
+import net.warvale.vanquish.commands.CommandException;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;

@@ -1,7 +1,6 @@
 package net.warvale.vanquish.commands;
 
 
-import net.warvale.vanquish.exceptions.CommandException;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

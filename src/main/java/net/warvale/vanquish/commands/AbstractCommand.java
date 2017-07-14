@@ -1,7 +1,6 @@
 package net.warvale.vanquish.commands;
 
 import net.warvale.vanquish.Main;
-import net.warvale.vanquish.exceptions.CommandException;
 import org.bukkit.command.CommandSender;
 
 import java.util.List;

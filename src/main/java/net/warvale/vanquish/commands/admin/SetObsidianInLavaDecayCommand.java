@@ -1,7 +1,7 @@
 package net.warvale.vanquish.commands.admin;
 
 import net.warvale.vanquish.commands.AbstractCommand;
-import net.warvale.vanquish.exceptions.CommandException;
+import net.warvale.vanquish.commands.CommandException;
 import net.warvale.vanquish.physics.ObsidianToLava;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
