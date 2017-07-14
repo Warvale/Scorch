@@ -8,14 +8,11 @@ import net.warvale.scorch.guilds.FirstJoinGuildStats;
 import net.warvale.scorch.listeners.BlockListener;
 import net.warvale.scorch.listeners.PlayerListener;
 import net.warvale.scorch.physics.ObsidianToLava;
-import net.warvale.scorch.regions.RegionMapGen;
 import net.warvale.scorch.regions.RegionMapListener;
 import net.warvale.scorch.utils.Broadcast;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.json.simple.parser.ParseException;
 
-import java.io.IOException;
 import java.util.Hashtable;
 import java.util.logging.Level;
 
@@ -36,7 +33,7 @@ public class Main extends JavaPlugin {
             Broadcast.toConsole(Level.INFO, "Successfully enabled!");
         } catch(Exception ex) {
             ex.printStackTrace();
-            getLogger().log(Level.WARNING, "Failed to enable Scorch!");
+            getLogger().log(Level.WARNING, "Failed to enable LobbyCore!");
         }
         //Register Events Here
         Bukkit.getPluginManager().registerEvents(new RegionMapListener(), this);
@@ -49,9 +46,7 @@ public class Main extends JavaPlugin {
     @Override
     public void onDisable(){
         enchantments.clear();
-    try {
-        RegionMapGen.saveMapFile(getConfig().getString("RegionMapPath"));
-    } catch (IOException ex) {ex.printStackTrace();}
+        getLogger().info("Disabled Vanquish");
     }
 
     private void initialise(){
@@ -64,15 +59,15 @@ public class Main extends JavaPlugin {
         ObsidianToLava.setDelay(5);
         new ObsidianToLava().runTaskTimer(this, 0, 20);
 
-        try {
-            RegionMapGen.setMap(RegionMapGen.getRegionMapFromFile(getConfig().getString("RegionMapPath")));
-        } catch (IOException e) {
-            getLogger().warning("There was a IOExpection while loading the RegionMap file.");
-            e.printStackTrace();
-        } catch (ParseException e) {
-            getLogger().warning("There was a ParseExpection while loading the RegionMap file.");
-            e.printStackTrace();
-        }
+//        try {
+//            RegionMapGen.setMap(RegionMapGen.getRegionMapFromFile(this.getConfig().get("RegionMapPath").toString()));
+//        } catch (IOException e) {
+//            getLogger().warning("There was a IOExpection while loading the RegionMap file.");
+//            e.printStackTrace();
+//        } catch (ParseException e) {
+//            getLogger().warning("There was a ParseExpection while loading the RegionMap file.");
+//            e.printStackTrace();
+//        }
 
     }
 
