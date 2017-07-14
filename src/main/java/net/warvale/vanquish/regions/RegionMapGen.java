@@ -7,12 +7,24 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
+import java.util.Map;
+
 /**
  * Created by Ron on 9/7/2017.
  */
 public class RegionMapGen {
     @Getter @Setter private static String map[][] = new String[1][1];
-    @Getter @Setter public static double lavalevel = 20;
+    @Getter @Setter private static double lavalevel = 20;
+    private static Map playerLocations;
+
+
+    public static Map getPlayerLocations() {
+        return playerLocations;
+    }
+
+    public static void setPlayerLocations(Map playerLocations) {
+        RegionMapGen.playerLocations = playerLocations;
+    }
 
     public static void setMap(String[][] map) {
         RegionMapGen.map = map;

@@ -65,6 +65,10 @@ public class GuildCommand extends AbstractCommand {
 				    player.sendMessage(guildsPrefix + "You do not have permission to use that command!");
 				    break;
                 }
+                if (RegionMapGen.getMap()[(int) player.getLocation().getX()][(int)player.getLocation().getZ()].equals("lava")) {
+					player.sendMessage(guildsPrefix + "You cannot claim lava!");
+					break;
+				}
 				String guildname = plugin.getConfig().getString("Player-Data."+player.getUniqueId().toString()+".GuildName");
                 String[][] omap = RegionMapGen.getMap();
                 omap[(int)player.getLocation().getX()][(int)player.getLocation().getZ()] = guildname;

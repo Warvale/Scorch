@@ -8,6 +8,7 @@ import net.warvale.vanquish.guilds.FirstJoinGuildStats;
 import net.warvale.vanquish.listeners.BlockListener;
 import net.warvale.vanquish.listeners.PlayerListener;
 import net.warvale.vanquish.physics.ObsidianToLava;
+import net.warvale.vanquish.regions.RegionMapListener;
 import net.warvale.vanquish.utils.Broadcast;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -35,6 +36,7 @@ public class Main extends JavaPlugin {
             getLogger().log(Level.WARNING, "Failed to enable LobbyCore!");
         }
         //Register Events Here
+        Bukkit.getPluginManager().registerEvents(new RegionMapListener(), this);
         Bukkit.getPluginManager().registerEvents(new BlockListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
         Bukkit.getPluginManager().registerEvents(new FirstJoinGuildStats(this), this);
