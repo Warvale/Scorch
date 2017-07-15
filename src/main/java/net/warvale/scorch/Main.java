@@ -10,6 +10,7 @@ import net.warvale.scorch.listeners.PlayerListener;
 import net.warvale.scorch.physics.ObsidianToLava;
 import net.warvale.scorch.regions.RegionMapGen;
 import net.warvale.scorch.regions.RegionMapListener;
+import net.warvale.scorch.sql.SQLConnection;
 import net.warvale.scorch.utils.Broadcast;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -24,8 +25,16 @@ import java.util.logging.Level;
  */
 public class Main extends JavaPlugin {
     private static Main instance;
+    public static SQLConnection db;
     private static CommandHandler cmds;
     private static Hashtable<String, CustomEnchantment> enchantments = new Hashtable<>();
+
+    public static SQLConnection getDB() {
+        return db;
+    }
+
+
+
     @Override
     public void onEnable(){
         
@@ -55,9 +64,16 @@ public class Main extends JavaPlugin {
     }
 
     private void initialise(){
-
+        db = new SQLConnection(getConfig().getString("hostname"), getConfig().getInt("port"), getConfig().getString("database"), getConfig().getString("username"), getConfig().getString("password"));
         cmds = new CommandHandler(this);
         cmds.registerCommands();
+        getLogger().log(Level.INFO, "Connecting to MySQL...");
+
+        try {
+            getDB().openConnection();
+        } catch (Exception e) {
+            getLogger().log(Level.WARNING, "Could not connect to MySQL", e);
+        }
 
         loadEnchantments();
 
@@ -95,5 +111,7 @@ public class Main extends JavaPlugin {
     public static Main get(){
         return instance;
     }
+
+
 
 }
