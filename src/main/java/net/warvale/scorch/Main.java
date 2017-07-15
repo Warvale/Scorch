@@ -10,12 +10,14 @@ import net.warvale.scorch.listeners.PlayerListener;
 import net.warvale.scorch.physics.ObsidianToLava;
 import net.warvale.scorch.regions.RegionMapGen;
 import net.warvale.scorch.regions.RegionMapListener;
+import net.warvale.scorch.sql.SQLConnection;
 import net.warvale.scorch.utils.Broadcast;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Hashtable;
 import java.util.logging.Level;
 
@@ -23,6 +25,7 @@ import java.util.logging.Level;
  * Created by AAces on 7/7/2017
  */
 public class Main extends JavaPlugin {
+    private static SQLConnection db;
     private static Main instance;
     private static CommandHandler cmds;
     private static Hashtable<String, CustomEnchantment> enchantments = new Hashtable<>();
@@ -46,8 +49,19 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new EnchantListener(), this);
 
     }
+    public static SQLConnection getDB() {
+        return db;
+    }
+
     @Override
     public void onDisable(){
+        getLogger().log(Level.INFO, "Closing connection to database...");
+
+        try {
+            getDB().closeConnection();
+        } catch (SQLException e) {
+            getLogger().log(Level.SEVERE, "Could not close database connection", e);
+        }
         enchantments.clear();
         try {
             RegionMapGen.saveMapFile(getConfig().getString("RegionMapPath"));
@@ -55,7 +69,15 @@ public class Main extends JavaPlugin {
     }
 
     private void initialise(){
+        db = new SQLConnection(getConfig().getString("sql.hostname"), getConfig().getInt("sql.port"), getConfig().getString("sql.database"), getConfig().getString("sql.username"), getConfig().getString("sql.password"));
+        //Connecting to MySQL
+        getLogger().log(Level.INFO, "Connecting to MySQL...");
 
+        try {
+            getDB().openConnection();
+        } catch (Exception e) {
+            getLogger().log(Level.WARNING, "Could not connect to MySQL", e);
+        }
         cmds = new CommandHandler(this);
         cmds.registerCommands();
 
