@@ -153,11 +153,13 @@ public abstract class CustomEnchantment {
         return list;
     }
 
-    public static ItemStack getRandomEnchantItem(Rarity r){
+    public static ItemStack getRandomEnchantItem(Rarity... r){
         List<CustomEnchantment> enchants = new ArrayList<>();
         for(CustomEnchantment e : Main.getEnchantments()){
-            if (e.getRarity().equals(r)){
-                enchants.add(e);
+            for (Rarity ra : r) {
+                if (e.getRarity().equals(ra)) {
+                    enchants.add(e);
+                }
             }
         }
         if (enchants.isEmpty()){return null;}
