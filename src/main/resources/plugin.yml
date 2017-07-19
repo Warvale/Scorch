@@ -16,5 +16,15 @@ commands:
     aliases: [enchants]
   giveenchant:
     description: Get any of the enchantment crystals.
+    permission: scorch.give
   lootchest:
     description: Spawn a lootchest at the desired location.
+  givecratekey:
+    description: Give a specified player a crate key.
+    permission: scorch.give
+  givevotecratekey:
+    description: Give a specified player a vote crate key.
+    permission: scorch.give
+  givereleasecratekey:
+    description: Give a specified player a release crate key.
+    permission: scorch.give
