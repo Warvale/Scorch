@@ -1,7 +1,42 @@
 {
   "biomes": [
     {
-      "name": "Mushroom Island",
+      "name": "Forest",
+      "items": [
+        {
+          "type": "stick",
+          "countMin": 32,
+          "countMax": 64,
+          "chance": 80
+        },
+        {
+          "type": "wood_sword",
+          "countMin": 1,
+          "countMax": 3,
+          "chance": 60
+        },
+        {
+          "type": "log",
+          "countMin": 16,
+          "countMax": 64,
+          "chance": 70
+        },
+        {
+          "type": "shears",
+          "countMin": 1,
+          "countMax": 2,
+          "chance": 50
+        },
+        {
+          "type": "leaves",
+          "countMin": 1,
+          "countMax": 2,
+          "chance": 10
+        }
+      ]
+    },
+    {
+      "name": "Mycelium",
       "items": [
         {
           "type": "mushroom_soup",
@@ -10,9 +45,9 @@
           "chance": 65
         },
         {
-          "type": "bread",
-          "countMin": 0,
-          "countMax": 32
+          "type": "mycel",
+          "countMin": 2,
+          "countMax": 8,
           "chance": 70
         },
         {
@@ -26,11 +61,47 @@
           "countMin": 2,
           "countMax": 16,
           "chance": 30
+        },
+        {
+          "type": "diamond_hoe",
+          "countMin": 1,
+          "countMax": 2,
+          "chance": 5
+        },
+        {
+          "type": "iron_hoe",
+          "countMin": 1,
+          "countMax": 2,
+          "chance": 10
+        },
+        {
+          "type": "stone_hoe",
+          "countMin": 1,
+          "countMax": 2,
+          "chance": 20
+        },
+        {
+          "type": "wooden_hoe",
+          "countMin": 1,
+          "countMax": 2,
+          "chance": 40
+        },
+        {
+          "type": "water_bucket",
+          "countMin": 1,
+          "countMax": 4,
+          "chance": 30
         }
       ]
     }
   ],
   "global": [
+    {
+      "type": "bread",
+      "countMin": 0,
+      "countMax": 32,
+      "chance": 70
+    },
     {
       "type": "potato",
       "countMin": 2,
@@ -44,33 +115,64 @@
       "chance": 15
     },
     {
-      "type": "wood_sword",
-      "countMin": 1,
-      "countMax": 1,
-      "chance": 40,
-      "max_sword_enchants": 5
+      "type": "seeds",
+      "countMin": 2,
+      "countMax": 32,
+      "chance": 15
     },
     {
-      "type": "stone_sword",
-      "countMin": 1,
-      "countMax": 1,
-      "chance": 20,
-      "max_sword_enchants": 4
+      "type": "sapling",
+      "countMin": 2,
+      "countMax": 32,
+      "chance": 15
     },
     {
-      "type": "iron_sword",
+      "type": "iron_ore",
       "countMin": 1,
-      "countMax": 1,
-      "chance": 5,
-      "max_sword_enchants": 3
+      "countMax": 16,
+      "chance": 15
     },
     {
-      "type": "diamond_sword",
+      "type": "gold_ore",
       "countMin": 1,
-      "countMax": 1,
-      "chance": 2,
-      "max_sword_enchants": 2
+      "countMax": 8,
+      "chance": 10
+    },
+    {
+      "type": "diamond_ore",
+      "countMin": 1,
+      "countMax": 4,
+      "chance": 3
+    },
+    {
+      "type": "emerald_ore",
+      "countMin": 1,
+      "countMax": 2,
+      "chance": 3
+    },
+    {
+      "type": "redstone_ore",
+      "countMin": 1,
+      "countMax": 16,
+      "chance": 15
+    },
+    {
+      "type": "lapis_ore",
+      "countMin": 1,
+      "countMax": 8,
+      "chance": 10
+    },
+    {
+      "type": "coal_ore",
+      "countMin": 16,
+      "countMax": 64,
+      "chance": 30
+    },
+    {
+      "type": "apple",
+      "countMin": 2,
+      "countMax": 64,
+      "chance": 15
     }
-
   ]
 }
