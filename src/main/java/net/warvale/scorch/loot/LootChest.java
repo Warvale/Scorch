@@ -8,6 +8,7 @@ import org.bukkit.block.BlockState;
 import org.bukkit.block.Chest;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -85,25 +86,49 @@ public class LootChest {
             if (i < globalAmount) {
                 JSONObject cur = (JSONObject) global_items.get(generatedGlobalArr[i]);
 
-                String type = (String) cur.get("type");
-
                 int countMin = ((Long) cur.get("countMin")).intValue();
                 int countMax = ((Long) cur.get("countMax")).intValue();
                 int amount = ThreadLocalRandom.current().nextInt(countMin, countMax);
 
-                chestInventory.setItem(chestSlotsArr[i], new ItemStack(Material.valueOf(type.toUpperCase()), amount));
+                String type = (String) cur.get("type");
+
+                ItemStack is = new ItemStack(Material.valueOf(type.toUpperCase()), amount);
+
+                if(cur.containsKey("names")) {
+                    JSONArray names = (JSONArray) cur.get("names");
+                    int namesLen = names.size();
+                    int name = ThreadLocalRandom.current().nextInt(0, namesLen);
+                    String curName = (String) names.get(name);
+
+                    ItemMeta meta = is.getItemMeta();
+                    meta.setDisplayName(curName);
+                    is.setItemMeta(meta);
+                }
+
+                chestInventory.setItem(chestSlotsArr[i], is);
             } else {
                 JSONObject cur = (JSONObject) biome_items.get(generatedBiomeArr[i - globalAmount]);
 
-
-
-                String type = (String) cur.get("type");
-
                 int countMin = ((Long) cur.get("countMin")).intValue();
                 int countMax = ((Long) cur.get("countMax")).intValue();
                 int amount = ThreadLocalRandom.current().nextInt(countMin, countMax);
 
-                chestInventory.setItem(chestSlotsArr[i], new ItemStack(Material.valueOf(type.toUpperCase()), amount));
+                String type = (String) cur.get("type");
+
+                ItemStack is = new ItemStack(Material.valueOf(type.toUpperCase()), amount);
+
+                if(cur.containsKey("names")) {
+                    JSONArray names = (JSONArray) cur.get("names");
+                    int namesLen = names.size();
+                    int name = ThreadLocalRandom.current().nextInt(0, namesLen);
+                    String curName = (String) names.get(name);
+
+                    ItemMeta meta = is.getItemMeta();
+                    meta.setDisplayName(curName);
+                    is.setItemMeta(meta);
+                }
+
+                chestInventory.setItem(chestSlotsArr[i], is);
             }
         }
 
