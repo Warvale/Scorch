@@ -16,3 +16,5 @@ commands:
     aliases: [enchants]
   giveenchant:
     description: Get any of the enchantment crystals.
+  lootchest:
+    description: Spawn a lootchest at the desired location.
