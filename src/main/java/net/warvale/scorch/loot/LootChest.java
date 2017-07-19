@@ -40,13 +40,16 @@ public class LootChest {
         JSONArray biome_items = (JSONArray) biome.get("items");
         JSONArray global_items = (JSONArray) ((JSONObject) obj).get("global");
 
-        int biomeAmount = ThreadLocalRandom.current().nextInt(1, 2);
+        int biomeAmount = ThreadLocalRandom.current().nextInt(1, 3);
         ThreadLocalRandom biomeItem = ThreadLocalRandom.current();
 
         Set<Integer> generatedBiome = new LinkedHashSet<Integer>();
         while (generatedBiome.size() < biomeAmount) {
             Integer next = biomeItem.nextInt(0, biome_items.size());
-            generatedBiome.add(next);
+            int chance = ((Long) ((JSONObject) biome_items.get(next)).get("chance")).intValue();
+            if (ThreadLocalRandom.current().nextInt(1, 100) < chance) {
+                generatedBiome.add(next);
+            }
         }
 
         int globalAmount = ThreadLocalRandom.current().nextInt(0, 2);
@@ -55,7 +58,10 @@ public class LootChest {
         Set<Integer> generatedGlobal = new LinkedHashSet<Integer>();
         while (generatedGlobal.size() < globalAmount) {
             Integer next = globalItem.nextInt(0, global_items.size());
-            generatedGlobal.add(next);
+            int chance = ((Long) ((JSONObject) global_items.get(next)).get("chance")).intValue();
+            if (ThreadLocalRandom.current().nextInt(1, 100) < chance) {
+                generatedGlobal.add(next);
+            }
         }
 
         ThreadLocalRandom chestSlot = ThreadLocalRandom.current();
