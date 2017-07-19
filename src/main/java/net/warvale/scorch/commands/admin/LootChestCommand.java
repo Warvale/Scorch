@@ -26,7 +26,7 @@ public class LootChestCommand extends AbstractCommand {
     }
 
     @Override
-    public boolean execute(CommandSender sender, String[] args) throws CommandException, ParseException, NoSuchFieldException, IOException {
+    public boolean execute(CommandSender sender, String[] args) throws CommandException {
         if (!(sender instanceof Player)){
             throw new CommandException("Only players can use this command!");
         }
@@ -36,7 +36,11 @@ public class LootChestCommand extends AbstractCommand {
             return false;
         }
 
-        new LootChest(parseInt(args[3]), new Location(player.getWorld(), Double.parseDouble(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2])));
+        try {
+            new LootChest(parseInt(args[3]), new Location(player.getWorld(), Double.parseDouble(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2])));
+        }  catch (IOException | ParseException | NoSuchFieldException e) {
+            e.printStackTrace();
+        }
 
         player.sendMessage(ChatColor.RED + "Loot chest spawned at desired location!");
         return true;
