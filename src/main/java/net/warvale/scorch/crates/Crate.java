@@ -22,7 +22,7 @@ public class Crate {
     private static boolean openingVoteCrate = false;
     private static boolean openingReleaseCrate = false;
 
-    public static ItemStack getKey(){
+    public static ItemStack getCrateKey(){
         ItemStack key = new ItemStack(Material.TRIPWIRE_HOOK);
         ItemMeta keyMeta = key.getItemMeta();
         keyMeta.setDisplayName(ChatColor.GOLD + "Crate Key");
@@ -34,7 +34,7 @@ public class Crate {
         return key;
     }
 
-    public static ItemStack getVoteKey(){
+    public static ItemStack getVoteCrateKey(){
         ItemStack key = new ItemStack(Material.TRIPWIRE_HOOK);
         ItemMeta keyMeta = key.getItemMeta();
         keyMeta.setDisplayName(ChatColor.GOLD + "Vote Crate Key");
@@ -46,7 +46,7 @@ public class Crate {
         return key;
     }
 
-    public static ItemStack getReleaseKey(){
+    public static ItemStack getReleaseCrateKey(){
         ItemStack key = new ItemStack(Material.TRIPWIRE_HOOK);
         ItemMeta keyMeta = key.getItemMeta();
         keyMeta.setDisplayName(ChatColor.GOLD + "Release Crate Key");

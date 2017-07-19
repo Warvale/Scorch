@@ -31,7 +31,7 @@ public class GiveCrateKeyCommand extends AbstractCommand {
             throw new CommandException("The specified player can not be found!");
         }
         Player target = Bukkit.getPlayer(args[0]);
-        target.getInventory().addItem(Crate.getKey());
+        target.getInventory().addItem(Crate.getCrateKey());
         sender.sendMessage(ChatColor.RED + "Successfully gave " + ChatColor.RED + target.getName() + ChatColor.RED + " a crate key!");
         return true;
     }
