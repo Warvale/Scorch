@@ -3,6 +3,7 @@ package net.warvale.scorch.commands;
 import net.warvale.scorch.Main;
 import net.warvale.scorch.commands.admin.Gen2dCommand;
 import net.warvale.scorch.commands.admin.SetObsidianInLavaDecayCommand;
+import net.warvale.scorch.commands.admin.LootChestCommand;
 import net.warvale.scorch.enchantments.EnchantsCommand;
 import net.warvale.scorch.enchantments.GiveEnchantBookCommand;
 import net.warvale.scorch.guilds.commands.GuildCommand;
