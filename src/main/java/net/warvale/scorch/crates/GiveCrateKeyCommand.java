@@ -2,7 +2,6 @@ package net.warvale.scorch.crates;
 
 import net.warvale.scorch.commands.AbstractCommand;
 import net.warvale.scorch.commands.CommandException;
-import net.warvale.scorch.crates.Crate;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -32,7 +31,7 @@ public class GiveCrateKeyCommand extends AbstractCommand {
             throw new CommandException("The specified player can not be found!");
         }
         Player target = Bukkit.getPlayer(args[0]);
-        Crate.giveKey(target);
+        target.getInventory().addItem(Crate.getKey());
         sender.sendMessage(ChatColor.RED + "Successfully gave " + ChatColor.RED + target.getName() + ChatColor.RED + " a crate key!");
         return true;
     }

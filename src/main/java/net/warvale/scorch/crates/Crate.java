@@ -22,7 +22,7 @@ public class Crate {
     private static boolean openingVoteCrate = false;
     private static boolean openingReleaseCrate = false;
 
-    public static void giveKey(Player player){
+    public static ItemStack getKey(){
         ItemStack key = new ItemStack(Material.TRIPWIRE_HOOK);
         ItemMeta keyMeta = key.getItemMeta();
         keyMeta.setDisplayName(ChatColor.GOLD + "Crate Key");
@@ -31,10 +31,10 @@ public class Crate {
         lore.add("Bring this to the crate at spawn to open!");
         keyMeta.setLore(lore);
         key.setItemMeta(keyMeta);
-        player.getInventory().addItem(key);
+        return key;
     }
 
-    public static void giveVoteKey(Player player){
+    public static ItemStack getVoteKey(){
         ItemStack key = new ItemStack(Material.TRIPWIRE_HOOK);
         ItemMeta keyMeta = key.getItemMeta();
         keyMeta.setDisplayName(ChatColor.GOLD + "Vote Crate Key");
@@ -43,10 +43,10 @@ public class Crate {
         lore.add("Bring this to the vote crate at spawn to open!");
         keyMeta.setLore(lore);
         key.setItemMeta(keyMeta);
-        player.getInventory().addItem(key);
+        return key;
     }
 
-    public static void giveReleaseKey(Player player){
+    public static ItemStack getReleaseKey(){
         ItemStack key = new ItemStack(Material.TRIPWIRE_HOOK);
         ItemMeta keyMeta = key.getItemMeta();
         keyMeta.setDisplayName(ChatColor.GOLD + "Release Crate Key");
@@ -55,7 +55,7 @@ public class Crate {
         lore.add("Bring this to the release crate at spawn to open!");
         keyMeta.setLore(lore);
         key.setItemMeta(keyMeta);
-        player.getInventory().addItem(key);
+        return key;
     }
 
     public static void setup(){
