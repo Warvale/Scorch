@@ -5,7 +5,6 @@ import net.warvale.scorch.crates.Crate;
 import net.warvale.scorch.enchantments.CustomEnchantment;
 import net.warvale.scorch.enchantments.EnchantListener;
 import net.warvale.scorch.enchantments.enchants.*;
-import net.warvale.scorch.guilds.FirstJoinGuildStats;
 import net.warvale.scorch.listeners.BlockListener;
 import net.warvale.scorch.listeners.PlayerListener;
 import net.warvale.scorch.physics.ObsidianToLava;
@@ -56,7 +55,6 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new RegionMapListener(), this);
         Bukkit.getPluginManager().registerEvents(new BlockListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
-        Bukkit.getPluginManager().registerEvents(new FirstJoinGuildStats(this), this);
         Bukkit.getPluginManager().registerEvents(new EnchantListener(), this);
 
     }

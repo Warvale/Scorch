@@ -3,13 +3,11 @@ package net.warvale.scorch.commands;
 import net.warvale.scorch.Main;
 import net.warvale.scorch.commands.admin.Gen2dCommand;
 import net.warvale.scorch.commands.admin.SetObsidianInLavaDecayCommand;
-import net.warvale.scorch.commands.admin.LootChestCommand;
 import net.warvale.scorch.crates.GiveCrateKeyCommand;
 import net.warvale.scorch.crates.GiveReleaseCrateKeyCommand;
 import net.warvale.scorch.crates.GiveVoteCrateKeyCommand;
 import net.warvale.scorch.enchantments.EnchantsCommand;
 import net.warvale.scorch.enchantments.GiveEnchantBookCommand;
-import net.warvale.scorch.guilds.commands.GuildCommand;
 import net.warvale.scorch.utils.Broadcast;
 import org.bukkit.command.*;
 
@@ -129,7 +127,6 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
         cmds.add(new GiveReleaseCrateKeyCommand());
 
         // Basic
-        cmds.add(new GuildCommand());
         cmds.add(new EnchantsCommand());
 
         for (AbstractCommand cmd : cmds) {
