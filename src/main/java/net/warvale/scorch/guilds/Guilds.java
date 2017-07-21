@@ -17,7 +17,7 @@ import java.util.HashMap;
  * Created by AAces on 7/21/2017
  */
 public class Guilds {
-    //Where invitiations to guilds are stored
+    //Where invitations to guilds are stored
     private static HashMap<Player, Integer> invites = new HashMap<>();
 
     private static SQLConnection connection = Main.getDB();
