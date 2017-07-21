@@ -17,11 +17,11 @@ import java.util.HashMap;
  * Created by AAces on 7/21/2017
  */
 public class Guilds {
-
+    //Where invitiations to guilds are stored
     private static HashMap<Player, Integer> invites = new HashMap<>();
 
     private static SQLConnection connection = Main.getDB();
-
+    //Tests if a specified player is in a guild
     public static boolean isInGuild(Player player) throws SQLException, ClassNotFoundException {
         try {
             return (getGuildId(player) != 0);
@@ -30,18 +30,23 @@ public class Guilds {
         }
         return false;
     }
-
+    //Tests if a guild exists
     public static boolean doesGuildExist(String name) throws SQLException, ClassNotFoundException {
-        return false;
+        ResultSet set = SQLUtil.query(connection, "guilds", "id", new SQLUtil.Where(new SQLUtil.WhereVar("name", name).getWhere()));
+        String s = String.valueOf(set.getInt("id"));
+        if(s.isEmpty()){
+            return false;
+        }
+        return true;
     }
-
+    //creates a guild
     public static void createGuild(String name, Player owner) throws SQLException, ClassNotFoundException {
         int id = getNextId();
         connection.executeSQL("INSERT INTO guilds(id, name, owner, max_players, islands_owned) VALUES ("+String.valueOf(id)+",'"+name+"','"+owner.getName()+"',50,0)");
         SQLUtil.update(connection, "users", "guild_ranking", 4, new SQLUtil.Where(new SQLUtil.WhereVar("name", owner.getName()).getWhere()));
         SQLUtil.update(connection, "users", "guild_id", id, new SQLUtil.Where(new SQLUtil.WhereVar("name", owner.getName()).getWhere()));
     }
-
+    //A number generator to provide an id for a new guild, duplicates are not impossible
     private static int getNextId() throws SQLException, ClassNotFoundException {
         int i = 1;
         ArrayList<Integer> ids = new ArrayList<>();
@@ -56,44 +61,44 @@ public class Guilds {
         }
         return i;
     }
-
+    //Returns the ID of the guild (Preferred way to reference a guild)
     public static int getGuildId(Player player) throws SQLException, ClassNotFoundException {
         ResultSet set = SQLUtil.query(connection, "users", "guild_id", new SQLUtil.Where(new SQLUtil.WhereVar("name", player.getName()).getWhere()));
         set.next();
         return set.getInt("guild_id");
     }
-
+    //Returns the ID of the guild (Preferred way to reference a guild)
     public static int getGuildId(String name) throws SQLException, ClassNotFoundException {
         ResultSet set = SQLUtil.query(connection, "guilds", "id", new SQLUtil.Where(new SQLUtil.WhereVar("name", name).getWhere()));
         set.next();
         return set.getInt("id");
     }
-
+    //Returns the name of the guild
     public static String getGuildName(Player player) throws SQLException, ClassNotFoundException {
         ResultSet set = SQLUtil.query(connection, "users", "guild_id", new SQLUtil.Where(new SQLUtil.WhereVar("name", player.getName()).getWhere()));
         set.next();
         return getGuildName(set.getInt("guild_id"));
     }
-
+    //Returns the name of the guild
     public static String getGuildName(int id) throws SQLException, ClassNotFoundException {
         ResultSet set = SQLUtil.query(connection, "guilds", "name", new SQLUtil.Where(new SQLUtil.WhereVar("id", id).getWhere()));
         set.next();
         return set.getString("name");
     }
-
+    //returns the player who owns the guild
     public static Player getGuildOwner(int id) throws SQLException, ClassNotFoundException {
         ResultSet set = SQLUtil.query(connection, "guilds", "owner", new SQLUtil.Where(new SQLUtil.WhereVar("id", id).getWhere()));
         set.next();
         return Bukkit.getPlayer(set.getString("owner"));
     }
-
+    //returns the player who owns the guild
     public static Player getGuildOwner(String name) throws SQLException, ClassNotFoundException {
         ResultSet set = SQLUtil.query(connection, "guilds", "owner", new SQLUtil.Where(new SQLUtil.WhereVar("name", name).getWhere()));
         set.next();
         return Bukkit.getPlayer(set.getString("owner"));
 
     }
-
+    //Remove the player from their guild (completely)
     public static void leaveGuild(Player player) throws SQLException, ClassNotFoundException{
         if(isGuildOwner(player)){
             player.sendMessage(ChatColor.RED + "As the guild owner, you can not leave your guild! Transfer ownership by typing " + ChatColor.DARK_RED + "/guild transferownership" + ChatColor.RED + "!");
@@ -106,12 +111,12 @@ public class Guilds {
         player.sendMessage(ChatColor.RED + "You have left the guild " + ChatColor.DARK_RED + name + ChatColor.RED + "!");
         sendGuildMessage(id, ChatColor.DARK_RED + player.getName() + " has left the guild!", false);
     }
-
+    //Invite a player to a specified guild
     public static void invitePlayer(Player invited, int guildId) throws SQLException, ClassNotFoundException {
         invites.put(invited, guildId);
         invited.sendMessage(ChatColor.RED + "You have been invited to join the guild " + ChatColor.DARK_RED + getGuildName(guildId) + ChatColor.RED +  "! Type " + ChatColor.DARK_RED + "/guild accept" + ChatColor.RED + " to accept the invite!");
     }
-
+    //accept a pending invite
     public static void acceptInvite(Player invited) throws SQLException, ClassNotFoundException {
         if(!invites.containsKey(invited)){
             invited.sendMessage(ChatColor.RED + "You have no pending invites!");
@@ -120,7 +125,7 @@ public class Guilds {
         invited.sendMessage(ChatColor.RED + "You have joined the guild " + ChatColor.DARK_RED + getGuildName(invites.get(invited)) + ChatColor.RED + "!");
         invites.remove(invited);
     }
-
+    //Decline a pending invite
     public static void declineInvite(Player invited) throws SQLException, ClassNotFoundException {
         if(!invites.containsKey(invited)){
             invited.sendMessage(ChatColor.RED + "You have no pending invites!");
@@ -131,7 +136,7 @@ public class Guilds {
         invited.sendMessage(ChatColor.RED + "You have declined the invite to the guild " + ChatColor.DARK_RED + i + ChatColor.RED + "!");
         getGuildOwner(t).sendMessage(ChatColor.DARK_RED + invited.getName() + ChatColor.RED + " has declined the invite to your guild!");
     }
-
+    //Delete a guild completely, can not be uundone;
     public static void disbandGuild(int guildId)throws SQLException, ClassNotFoundException{
         sendGuildMessage(guildId, ChatColor.RED + "The guild has been disbanded!", true);
         for(Player player : getPlayersInGuild(guildId)){
@@ -140,11 +145,11 @@ public class Guilds {
         connection.executeSQL("DELETE FROM guilds WHERE id = " + String.valueOf(guildId));
         //TODO: Unclaim Islands
     }
-
+    //Test to see if a player is the owner of a guild
     public static boolean isGuildOwner(Player player) throws SQLException, ClassNotFoundException {
         return getGuildRanking(player) == 4; //4 is the rank a guild owner has
     }
-
+    //Transfer the ownership of a guild to another member of the guild
     public static void transferOwnership(Player newOwner, int guildId) throws SQLException, ClassNotFoundException{
         Player currentOwner = getGuildOwner(guildId);
         if (getGuildId(newOwner) != getGuildId(currentOwner)){
@@ -156,7 +161,7 @@ public class Guilds {
         setGuildOwner(newOwner, getGuildId(newOwner));
         sendGuildMessage(getGuildId(newOwner), ChatColor.DARK_RED + newOwner.getName() + " has been promoted to the owner of this guild!", true);
     }
-
+    //Promote a player to the next rank
     public static void promote(Player executor, Player target)throws SQLException, ClassNotFoundException{
         int exR = getGuildRanking(executor);
         int plR = getGuildRanking(target);
@@ -178,7 +183,7 @@ public class Guilds {
             executor.sendMessage(ChatColor.RED + "You can not promote players!");
         }
     }
-
+    //Demote a player to a previous rank
     public static void demote(Player executor, Player target)throws SQLException, ClassNotFoundException{
         int exR = getGuildRanking(executor);
         int plR = getGuildRanking(target);
@@ -200,13 +205,13 @@ public class Guilds {
             executor.sendMessage(ChatColor.RED + "You can not demote players!");
         }
     }
-
+    //Put a player in a guild
     public static void joinGuild(Player player, int guildId)throws SQLException, ClassNotFoundException{
         SQLUtil.update(connection, "users", "guild_id", guildId, new SQLUtil.Where(new SQLUtil.WhereVar("name", player.getName()).getWhere()));
-
         SQLUtil.update(connection, "users", "guild_ranking", 1, new SQLUtil.Where(new SQLUtil.WhereVar("name", player.getName()).getWhere()));
+        sendGuildMessage(guildId, ChatColor.DARK_RED + player.getName() + ChatColor.RED + " has joined the guild!", false);
     }
-
+    //Kicks a player from a guild
     public static void kickPlayer(Player player) throws SQLException, ClassNotFoundException {
         String name = getGuildName(player);
         int id = getGuildId(player);
@@ -215,7 +220,7 @@ public class Guilds {
         player.sendMessage(ChatColor.RED + "You have been kicked from the guild " + ChatColor.DARK_RED + name + ChatColor.RED + "!");
         sendGuildMessage(id, ChatColor.DARK_RED + player.getName() + " has been kicked from the guild!", false);
     }
-
+    //Default 50
     public static void setMaxPlayers(int players, int guildId) throws SQLException, ClassNotFoundException {
         SQLUtil.update(connection, "guilds", "max_players", players, new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
     }
@@ -247,7 +252,7 @@ public class Guilds {
     public static void setGuildRanking(Player player, int ranking) throws SQLException, ClassNotFoundException {
         SQLUtil.update(connection, "users", "guild_ranking", ranking, new SQLUtil.Where(new SQLUtil.WhereVar("name", player.getName()).getWhere()));
     }
-
+    //Number of players in specified guild
     public static int getAmountOfPlayers(int guildId) throws SQLException, ClassNotFoundException {
         return getPlayersInGuild(guildId).size();
     }
@@ -261,11 +266,11 @@ public class Guilds {
             }
         }
     }
-
+    //Set the number of islands claimed by a specified guild
     public static void setAmountOfClaimedIslands(int islands, int guildId) throws SQLException, ClassNotFoundException {
         SQLUtil.update(connection, "guilds", "islands_claimed", islands, new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
     }
-
+    //Number of islands claimed by a specified guild
     public static int getAmountOfClaimedIslands(int guildId) throws SQLException, ClassNotFoundException {
         ResultSet set = SQLUtil.query(connection, "guilds", "islands_claimed", new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
         set.next();
