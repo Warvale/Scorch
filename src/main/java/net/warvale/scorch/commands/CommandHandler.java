@@ -8,6 +8,7 @@ import net.warvale.scorch.crates.GiveReleaseCrateKeyCommand;
 import net.warvale.scorch.crates.GiveVoteCrateKeyCommand;
 import net.warvale.scorch.enchantments.EnchantsCommand;
 import net.warvale.scorch.enchantments.GiveEnchantBookCommand;
+import net.warvale.scorch.guilds.GuildCommand;
 import net.warvale.scorch.utils.Broadcast;
 import org.bukkit.command.*;
 
@@ -128,6 +129,7 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
 
         // Basic
         cmds.add(new EnchantsCommand());
+        cmds.add(new GuildCommand());
 
         for (AbstractCommand cmd : cmds) {
             PluginCommand pCmd = plugin.getCommand(cmd.getName());

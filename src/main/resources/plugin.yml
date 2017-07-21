@@ -25,3 +25,6 @@ commands:
   givereleasecratekey:
     description: Give a specified player a release crate key.
     permission: scorch.give
+  guild:
+    description: All functions involving guilds.
+    aliases: [g]
