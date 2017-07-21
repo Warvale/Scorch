@@ -95,7 +95,7 @@ public class GuildCommand extends AbstractCommand{
                             e.printStackTrace();
                         }
                     } else if (args.length == 2){
-                        String gName = args[2];
+                        String gName = args[1];
                         try {
                             if(!Guilds.doesGuildExist(gName)){
                                 player.sendMessage(ChatColor.RED + "The guild " + ChatColor.DARK_RED + gName + ChatColor.RED + " does not exist!");
