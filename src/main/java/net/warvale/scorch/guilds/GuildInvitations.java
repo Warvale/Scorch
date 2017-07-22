@@ -273,4 +273,7 @@ public class GuildInvitations {
         invites.remove(invited);
         invites.put(invited, ids);
     }
+    public static int getAmountOfInvitations(Player player){
+        return invites.get(player).size();
+    }
 }

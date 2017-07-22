@@ -276,8 +276,9 @@ public class GuildCommand extends AbstractCommand{
                             player.sendMessage(ChatColor.RED + "You are already in a guild!");
                             break;
                         }
-                        if(args.length == 1){
-                            GuildInvitations.acceptInvite(player, -1, true);
+                        if(GuildInvitations.getAmountOfInvitations(player) == 1){
+                            GuildInvitations.acceptInvite(player, -1, false);
+                            break;
                         }
                         if(args.length == 2 && (args[1].equals("info") || args[1].equals("list"))){
                             GuildInvitations.acceptInvite(player, -1, true);
@@ -295,8 +296,9 @@ public class GuildCommand extends AbstractCommand{
                     break;
                 case "decline":
                     try {
-                        if(args.length == 1){
-                            GuildInvitations.declineInvite(player, -1, true);
+                        if(GuildInvitations.getAmountOfInvitations(player) == 1){
+                            GuildInvitations.declineInvite(player, -1, false);
+                            break;
                         }
                         if(args.length == 2 && (args[1].equals("info") || args[1].equals("list"))){
                             GuildInvitations.declineInvite(player, -1, true);
