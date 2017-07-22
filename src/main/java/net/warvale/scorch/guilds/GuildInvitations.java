@@ -273,6 +273,7 @@ public class GuildInvitations {
         invites.remove(invited);
         invites.put(invited, ids);
     }
+    //Returns the amount of pending invites a player has
     public static int getAmountOfInvitations(Player player){
         return invites.get(player).size();
     }
