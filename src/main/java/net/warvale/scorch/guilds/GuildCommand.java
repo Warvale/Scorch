@@ -175,7 +175,7 @@ public class GuildCommand extends AbstractCommand{
                             player.sendMessage(ChatColor.RED + "This player can not be found!");
                             break;
                         }
-                        Guilds.invitePlayer(Bukkit.getPlayer(a), Guilds.getGuildId(player));
+                        GuildInvitations.invitePlayer(player, Bukkit.getPlayer(a));
                     } catch (SQLException | ClassNotFoundException e) {
                         e.printStackTrace();
                     }
@@ -276,14 +276,38 @@ public class GuildCommand extends AbstractCommand{
                             player.sendMessage(ChatColor.RED + "You are already in a guild!");
                             break;
                         }
-                        Guilds.acceptInvite(player);
+                        if(args.length == 1){
+                            GuildInvitations.acceptInvite(player, -1, true);
+                        }
+                        if(args.length == 2 && (args[1].equals("info") || args[1].equals("list"))){
+                            GuildInvitations.acceptInvite(player, -1, true);
+                        } else if(args.length == 2 && StringUtils.isNumeric(args[1])){
+                            int i = Integer.valueOf(args[1]);
+                            if (i >= 1 && i <= 10){
+                                GuildInvitations.acceptInvite(player, i, false);
+                            }
+                        } else {
+                            GuildInvitations.acceptInvite(player, -1, true);
+                        }
                     } catch (SQLException | ClassNotFoundException e) {
                         e.printStackTrace();
                     }
                     break;
                 case "decline":
                     try {
-                        Guilds.declineInvite(player);
+                        if(args.length == 1){
+                            GuildInvitations.declineInvite(player, -1, true);
+                        }
+                        if(args.length == 2 && (args[1].equals("info") || args[1].equals("list"))){
+                            GuildInvitations.declineInvite(player, -1, true);
+                        } else if(args.length == 2 && StringUtils.isNumeric(args[1])){
+                            int i = Integer.valueOf(args[1]);
+                            if (i >= 1 && i <= 10){
+                                GuildInvitations.declineInvite(player, i, false);
+                            }
+                        } else {
+                            GuildInvitations.declineInvite(player, -1, true);
+                        }
                     } catch (SQLException | ClassNotFoundException e) {
                         e.printStackTrace();
                     }

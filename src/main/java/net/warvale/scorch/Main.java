@@ -5,6 +5,7 @@ import net.warvale.scorch.crates.Crate;
 import net.warvale.scorch.enchantments.CustomEnchantment;
 import net.warvale.scorch.enchantments.EnchantListener;
 import net.warvale.scorch.enchantments.enchants.*;
+import net.warvale.scorch.guilds.GuildInvitations;
 import net.warvale.scorch.listeners.BlockListener;
 import net.warvale.scorch.listeners.PlayerListener;
 import net.warvale.scorch.physics.ObsidianToLava;
@@ -61,6 +62,7 @@ public class Main extends JavaPlugin {
     @Override
     public void onDisable(){
         enchantments.clear();
+        GuildInvitations.invites.clear();
         try {
             RegionMapGen.saveMapFile(getConfig().getString("RegionMapPath"));
         } catch (IOException exx) {exx.printStackTrace();}

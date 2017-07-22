@@ -17,8 +17,6 @@ import java.util.HashMap;
  * Created by AAces on 7/21/2017
  */
 public class Guilds {
-    //Where invitations to guilds are stored
-    private static HashMap<Player, Integer> invites = new HashMap<>();
 
     private static SQLConnection connection = Main.getDB();
     //Tests if a specified player is in a guild
@@ -110,31 +108,6 @@ public class Guilds {
         SQLUtil.update(connection, "users", "guild_id", 0, new SQLUtil.Where(new SQLUtil.WhereVar("name", player.getName()).getWhere()));
         player.sendMessage(ChatColor.RED + "You have left the guild " + ChatColor.DARK_RED + name + ChatColor.RED + "!");
         sendGuildMessage(id, ChatColor.DARK_RED + player.getName() + " has left the guild!", false);
-    }
-    //Invite a player to a specified guild
-    public static void invitePlayer(Player invited, int guildId) throws SQLException, ClassNotFoundException {
-        invites.put(invited, guildId);
-        invited.sendMessage(ChatColor.RED + "You have been invited to join the guild " + ChatColor.DARK_RED + getGuildName(guildId) + ChatColor.RED +  "! Type " + ChatColor.DARK_RED + "/guild accept" + ChatColor.RED + " to accept the invite!");
-    }
-    //accept a pending invite
-    public static void acceptInvite(Player invited) throws SQLException, ClassNotFoundException {
-        if(!invites.containsKey(invited)){
-            invited.sendMessage(ChatColor.RED + "You have no pending invites!");
-        }
-        joinGuild(invited, invites.get(invited));
-        invited.sendMessage(ChatColor.RED + "You have joined the guild " + ChatColor.DARK_RED + getGuildName(invites.get(invited)) + ChatColor.RED + "!");
-        invites.remove(invited);
-    }
-    //Decline a pending invite
-    public static void declineInvite(Player invited) throws SQLException, ClassNotFoundException {
-        if(!invites.containsKey(invited)){
-            invited.sendMessage(ChatColor.RED + "You have no pending invites!");
-        }
-        int t = invites.get(invited);
-        String i = getGuildName(t);
-        invites.remove(invited);
-        invited.sendMessage(ChatColor.RED + "You have declined the invite to the guild " + ChatColor.DARK_RED + i + ChatColor.RED + "!");
-        getGuildOwner(t).sendMessage(ChatColor.DARK_RED + invited.getName() + ChatColor.RED + " has declined the invite to your guild!");
     }
     //Delete a guild completely, can not be uundone;
     public static void disbandGuild(int guildId)throws SQLException, ClassNotFoundException{
