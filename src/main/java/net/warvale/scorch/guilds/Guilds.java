@@ -5,6 +5,7 @@ import net.warvale.scorch.sql.SQLConnection;
 import net.warvale.scorch.sql.SQLUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
@@ -248,5 +249,24 @@ public class Guilds {
         ResultSet set = SQLUtil.query(connection, "guilds", "islands_claimed", new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
         set.next();
         return set.getInt("islands_claimed");
+    }
+    //Set the location of the hub island (bed location)
+    public static void setHubIslandLocation(Location location, int guildId) throws SQLException, ClassNotFoundException {
+        int x = (int) location.getX();
+        int y = (int) location.getY();
+        int z = (int) location.getZ();
+        SQLUtil.update(connection, "guilds", "hub_x", x, new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
+        SQLUtil.update(connection, "guilds", "hub_y", y, new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
+        SQLUtil.update(connection, "guilds", "hub_z", z, new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
+    }
+    //Get the location of the hub island (bed location)
+    public static Location getHubIslandLocation(int guildId) throws SQLException, ClassNotFoundException {
+        ResultSet set = SQLUtil.query(connection, "guilds", "hub_x", new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
+        int x = set.getInt("hub_x");
+        ResultSet sett = SQLUtil.query(connection, "guilds", "hub_y", new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
+        int y = sett.getInt("hub_y");
+        ResultSet settt = SQLUtil.query(connection, "guilds", "hub_z", new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
+        int z = settt.getInt("hub_z");
+        return new Location(Main.getMainWorld(), x, y, z);
     }
 }

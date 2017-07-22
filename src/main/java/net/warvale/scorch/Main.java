@@ -15,6 +15,7 @@ import net.warvale.scorch.sql.SQLConnection;
 import net.warvale.scorch.utils.Broadcast;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.parser.ParseException;
 
@@ -31,14 +32,14 @@ public class Main extends JavaPlugin {
     public static SQLConnection db;
     private static CommandHandler cmds;
     private static Hashtable<String, CustomEnchantment> enchantments = new Hashtable<>();
-    private static Location crateChestLocation = new Location(Bukkit.getWorld("world"), 0, 50, 0);
-    private static Location voteCrateChestLocation = new Location(Bukkit.getWorld("world"), 0, 50, 0);
-    private static Location releaseCrateChestLocation = new Location(Bukkit.getWorld("world"), 0, 50, 0);
-
+    private static Location crateChestLocation = new Location(getMainWorld(), 0, 50, 0);
+    private static Location voteCrateChestLocation = new Location(getMainWorld(), 0, 50, 0);
+    private static Location releaseCrateChestLocation = new Location(getMainWorld(), 0, 50, 0);
+    private static World mainWorld = Bukkit.getWorld("world");
     public static SQLConnection getDB() {
         return db;
     }
-
+    public static World getMainWorld(){return mainWorld;}
 
     @Override
     public void onEnable(){

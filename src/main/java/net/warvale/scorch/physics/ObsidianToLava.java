@@ -1,5 +1,6 @@
 package net.warvale.scorch.physics;
 
+import net.warvale.scorch.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
@@ -26,8 +27,8 @@ public class ObsidianToLava extends BukkitRunnable{
             locations.remove(loc);
             locations.put(loc, x);
             if (locations.get(loc) <= 0){
-                Bukkit.getWorld("world").playEffect(loc, Effect.SMOKE, 31);
-                Bukkit.getWorld("world").getBlockAt(loc).setType(Material.STATIONARY_LAVA);
+                Main.getMainWorld().playEffect(loc, Effect.SMOKE, 31);
+                Main.getMainWorld().getBlockAt(loc).setType(Material.STATIONARY_LAVA);
                 locations.remove(loc);
             }
         }
