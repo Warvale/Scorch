@@ -32,48 +32,41 @@ public class GuildCommand extends AbstractCommand{
             String term = args[0];
             switch (term){
                 case "create":
-                    if(args.length != 2){
-                        player.sendMessage(ChatColor.DARK_RED + "[Scorch] " + ChatColor.RED + "Usage: /guild create <name>");
-                        break;
-                    }
-                    String name = args[1];
-                    try {
+                    try{
+                        if(args.length != 2){
+                            player.sendMessage(ChatColor.DARK_RED + "[Scorch] " + ChatColor.RED + "Usage: /guild create <name>");
+                            break;
+                        }
+                        String name = args[1];
                         if(Guilds.isInGuild(player)){
                             player.sendMessage(ChatColor.RED + "You must leave your current guild with " + ChatColor.DARK_RED + "/guild leave" + ChatColor.RED + " before creating a new one!");
                             break;
                         }
-                    } catch (SQLException | ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                    if(!StringUtils.isAlphanumeric(name)){
-                        player.sendMessage(ChatColor.RED + "Guild names must be alphanumeric and contain at least one letter!");
-                        break;
-                    }
-                    boolean alpha = false;
-                    for (int i = 0; i < name.length(); i++) {
-                        if (Character.isLetter(name.charAt(i))) {
-                            alpha = true;
+                        if(!StringUtils.isAlphanumeric(name)){
+                            player.sendMessage(ChatColor.RED + "Guild names must be alphanumeric and contain at least one letter!");
+                            break;
                         }
-                    }
-                    if(!alpha){
-                        player.sendMessage(ChatColor.RED + "Guild names must be alphanumeric and contain at least one letter!");
-                        break;
-                    }
-                    if(name.length() > 12){
-                        player.sendMessage(ChatColor.RED + "Guild names must not exceed 12 characters in length!");
-                        break;
-                    }
-                    try {
+                        boolean alpha = false;
+                        for (int i = 0; i < name.length(); i++) {
+                            if (Character.isLetter(name.charAt(i))) {
+                                alpha = true;
+                            }
+                        }
+                        if(!alpha){
+                            player.sendMessage(ChatColor.RED + "Guild names must be alphanumeric and contain at least one letter!");
+                            break;
+                        }
+                        if(name.length() > 12){
+                            player.sendMessage(ChatColor.RED + "Guild names must not exceed 12 characters in length!");
+                            break;
+                        }
                         if(Guilds.doesGuildExist(name)){
                             player.sendMessage(ChatColor.RED + "A guild with the name " + ChatColor.DARK_RED + name + ChatColor.RED + " already exists!");
                             break;
                         }
-                    } catch (SQLException | ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                    try {
+
                         Guilds.createGuild(name, player);
-                    } catch (SQLException | ClassNotFoundException e) {
+                    } catch (SQLException | ClassNotFoundException e){
                         e.printStackTrace();
                     }
                     break;
