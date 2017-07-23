@@ -40,25 +40,9 @@ public class Guilds {
     }
     //creates a guild
     public static void createGuild(String name, Player owner) throws SQLException, ClassNotFoundException {
-        int id = getNextId();
-        connection.executeSQL("INSERT INTO guilds(id, name, owner, max_players, islands_owned) VALUES ("+String.valueOf(id)+",'"+name+"','"+owner.getName()+"',50,0)");
+        connection.executeSQL("INSERT INTO guilds(name, owner) VALUES ('"+name+"','"+owner.getName()+"')");
         SQLUtil.update(connection, "users", "guild_ranking", 4, new SQLUtil.Where(new SQLUtil.WhereVar("name", owner.getName()).getWhere()));
-        SQLUtil.update(connection, "users", "guild_id", id, new SQLUtil.Where(new SQLUtil.WhereVar("name", owner.getName()).getWhere()));
-    }
-    //A number generator to provide an id for a new guild, duplicates are not impossible
-    private static int getNextId() throws SQLException, ClassNotFoundException {
-        int i = 1;
-        ArrayList<Integer> ids = new ArrayList<>();
-
-        ResultSet rs = SQLUtil.query(connection, "guilds", "id", new SQLUtil.Where("1"));
-
-        while(rs.next()){
-            ids.add(rs.getInt("id"));
-        }
-        for (int id : ids){
-            i += id;
-        }
-        return i;
+        SQLUtil.update(connection, "users", "guild_id", getGuildId(name), new SQLUtil.Where(new SQLUtil.WhereVar("name", owner.getName()).getWhere()));
     }
     //Returns the ID of the guild (Preferred way to reference a guild)
     public static int getGuildId(Player player) throws SQLException, ClassNotFoundException {
