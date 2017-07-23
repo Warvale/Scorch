@@ -59,6 +59,10 @@ public class GuildCommand extends AbstractCommand{
                         player.sendMessage(ChatColor.RED + "Guild names must be alphanumeric and contain at least one letter!");
                         break;
                     }
+                    if(name.length() > 12){
+                        player.sendMessage(ChatColor.RED + "Guild names must not exceed 12 characters in length!");
+                        break;
+                    }
                     try {
                         if(Guilds.doesGuildExist(name)){
                             player.sendMessage(ChatColor.RED + "A guild with the name " + ChatColor.DARK_RED + name + ChatColor.RED + " already exists!");
