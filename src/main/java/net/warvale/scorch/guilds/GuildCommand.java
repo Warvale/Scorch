@@ -351,8 +351,8 @@ public class GuildCommand extends AbstractCommand{
         player.sendMessage(ChatColor.RED + "/guild demote <player>" + ChatColor.DARK_RED + " - " + ChatColor.GOLD + "Demote a player to the previous rank (must have admin+ permission).");
         player.sendMessage(ChatColor.RED + "/guild transferownership <player>" + ChatColor.DARK_RED + " - " + ChatColor.GOLD + "Transfer the ownership of a guild to another player in the guild (Can not be undone unless the new owner does" + ChatColor.RED + player.getName() + ChatColor.GOLD + "!).");
         player.sendMessage(ChatColor.RED + "/guild leave" + ChatColor.DARK_RED + " - " + ChatColor.GOLD + "Leave the guild you are in.");
-        player.sendMessage(ChatColor.RED + "/guild accept" + ChatColor.DARK_RED + " - " + ChatColor.GOLD + "Accept a pending invitation to a guild.");
-        player.sendMessage(ChatColor.RED + "/guild decline" + ChatColor.DARK_RED + " - " + ChatColor.GOLD + "Decline a pending invitation to a guild.");
+        player.sendMessage(ChatColor.RED + "/guild accept [#]" + ChatColor.DARK_RED + " - " + ChatColor.GOLD + "Accept a pending invitation to a guild.");
+        player.sendMessage(ChatColor.RED + "/guild decline [#]" + ChatColor.DARK_RED + " - " + ChatColor.GOLD + "Decline a pending invitation to a guild.");
         player.sendMessage(ChatColor.RED + "/guild disband" + ChatColor.DARK_RED + " - " + ChatColor.GOLD + "Delete the guild and unclaim all islands. CAN NOT BE UNDONE!");
     }
 }
