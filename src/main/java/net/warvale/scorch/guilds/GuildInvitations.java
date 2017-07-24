@@ -48,107 +48,12 @@ public class GuildInvitations {
         }
         int size = invites.get(invited).size();
         if (helpMessage){
-            switch (size){
-                case 2:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to accept by typing " + ChatColor.DARK_RED + "/guild accept <#>");
-                    invited.sendMessage(ChatColor.RED + "Please note that accepting an invitation clears your list of pending invitations.");
-                    break;
-                case 3:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to accept by typing " + ChatColor.DARK_RED + "/guild accept <#>");
-                    invited.sendMessage(ChatColor.RED + "Please note that accepting an invitation clears your list of pending invitations.");
-                    break;
-                case 4:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.DARK_RED + "4. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(3)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to accept by typing " + ChatColor.DARK_RED + "/guild accept <#>");
-                    invited.sendMessage(ChatColor.RED + "Please note that accepting an invitation clears your list of pending invitations.");
-                    break;
-                case 5:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.DARK_RED + "4. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(3)));
-                    invited.sendMessage(ChatColor.DARK_RED + "5. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(4)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to accept by typing " + ChatColor.DARK_RED + "/guild accept <#>");
-                    invited.sendMessage(ChatColor.RED + "Please note that accepting an invitation clears your list of pending invitations.");
-                    break;
-                case 6:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.DARK_RED + "4. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(3)));
-                    invited.sendMessage(ChatColor.DARK_RED + "5. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(4)));
-                    invited.sendMessage(ChatColor.DARK_RED + "6. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(5)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to accept by typing " + ChatColor.DARK_RED + "/guild accept <#>");
-                    invited.sendMessage(ChatColor.RED + "Please note that accepting an invitation clears your list of pending invitations.");
-                    break;
-                case 7:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.DARK_RED + "4. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(3)));
-                    invited.sendMessage(ChatColor.DARK_RED + "5. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(4)));
-                    invited.sendMessage(ChatColor.DARK_RED + "6. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(5)));
-                    invited.sendMessage(ChatColor.DARK_RED + "7. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(6)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to accept by typing " + ChatColor.DARK_RED + "/guild accept <#>");
-                    invited.sendMessage(ChatColor.RED + "Please note that accepting an invitation clears your list of pending invitations.");
-                    break;
-                case 8:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.DARK_RED + "4. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(3)));
-                    invited.sendMessage(ChatColor.DARK_RED + "5. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(4)));
-                    invited.sendMessage(ChatColor.DARK_RED + "6. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(5)));
-                    invited.sendMessage(ChatColor.DARK_RED + "7. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(6)));
-                    invited.sendMessage(ChatColor.DARK_RED + "8. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(7)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to accept by typing " + ChatColor.DARK_RED + "/guild accept <#>");
-                    invited.sendMessage(ChatColor.RED + "Please note that accepting an invitation clears your list of pending invitations.");
-                    break;
-                case 9:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.DARK_RED + "4. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(3)));
-                    invited.sendMessage(ChatColor.DARK_RED + "5. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(4)));
-                    invited.sendMessage(ChatColor.DARK_RED + "6. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(5)));
-                    invited.sendMessage(ChatColor.DARK_RED + "7. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(6)));
-                    invited.sendMessage(ChatColor.DARK_RED + "8. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(7)));
-                    invited.sendMessage(ChatColor.DARK_RED + "9. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(8)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to accept by typing " + ChatColor.DARK_RED + "/guild accept <#>");
-                    invited.sendMessage(ChatColor.RED + "Please note that accepting an invitation clears your list of pending invitations.");
-                    break;
-                case 10:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.DARK_RED + "4. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(3)));
-                    invited.sendMessage(ChatColor.DARK_RED + "5. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(4)));
-                    invited.sendMessage(ChatColor.DARK_RED + "6. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(5)));
-                    invited.sendMessage(ChatColor.DARK_RED + "7. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(6)));
-                    invited.sendMessage(ChatColor.DARK_RED + "8. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(7)));
-                    invited.sendMessage(ChatColor.DARK_RED + "9. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(8)));
-                    invited.sendMessage(ChatColor.DARK_RED + "10. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(9)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to accept by typing " + ChatColor.DARK_RED + "/guild accept <#>");
-                    invited.sendMessage(ChatColor.RED + "Please note that accepting an invitation clears your list of pending invitations.");
-                    break;
+            invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
+            for(int i = 0; i < size; i++){
+                invited.sendMessage(ChatColor.DARK_RED + String.valueOf(i+1) + ChatColor.RED + ". " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(i)));
             }
+            invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to accept by typing " + ChatColor.DARK_RED + "/guild accept <#>");
+            invited.sendMessage(ChatColor.RED + "Please note that accepting an invitation clears your list of pending invitations.");
             return;
         }
         int id = invites.get(invited).get(num-1);
@@ -171,98 +76,11 @@ public class GuildInvitations {
         }
         int size = invites.get(invited).size();
         if (helpMessage){
-            switch (size){
-                case 2:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to decline by typing " + ChatColor.DARK_RED + "/guild decline <#>");
-                    break;
-                case 3:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to decline by typing " + ChatColor.DARK_RED + "/guild decline <#>");
-                    break;
-                case 4:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.DARK_RED + "4. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(3)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to decline by typing " + ChatColor.DARK_RED + "/guild decline <#>");
-                    break;
-                case 5:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.DARK_RED + "4. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(3)));
-                    invited.sendMessage(ChatColor.DARK_RED + "5. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(4)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to decline by typing " + ChatColor.DARK_RED + "/guild decline <#>");
-                    break;
-                case 6:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.DARK_RED + "4. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(3)));
-                    invited.sendMessage(ChatColor.DARK_RED + "5. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(4)));
-                    invited.sendMessage(ChatColor.DARK_RED + "6. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(5)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to decline by typing " + ChatColor.DARK_RED + "/guild decline <#>");
-                    break;
-                case 7:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.DARK_RED + "4. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(3)));
-                    invited.sendMessage(ChatColor.DARK_RED + "5. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(4)));
-                    invited.sendMessage(ChatColor.DARK_RED + "6. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(5)));
-                    invited.sendMessage(ChatColor.DARK_RED + "7. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(6)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to decline by typing " + ChatColor.DARK_RED + "/guild decline <#>");
-                    break;
-                case 8:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.DARK_RED + "4. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(3)));
-                    invited.sendMessage(ChatColor.DARK_RED + "5. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(4)));
-                    invited.sendMessage(ChatColor.DARK_RED + "6. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(5)));
-                    invited.sendMessage(ChatColor.DARK_RED + "7. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(6)));
-                    invited.sendMessage(ChatColor.DARK_RED + "8. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(7)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to decline by typing " + ChatColor.DARK_RED + "/guild decline <#>");
-                    break;
-                case 9:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.DARK_RED + "4. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(3)));
-                    invited.sendMessage(ChatColor.DARK_RED + "5. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(4)));
-                    invited.sendMessage(ChatColor.DARK_RED + "6. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(5)));
-                    invited.sendMessage(ChatColor.DARK_RED + "7. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(6)));
-                    invited.sendMessage(ChatColor.DARK_RED + "8. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(7)));
-                    invited.sendMessage(ChatColor.DARK_RED + "9. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(8)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to decline by typing " + ChatColor.DARK_RED + "/guild decline <#>");
-                    break;
-                case 10:
-                    invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-                    invited.sendMessage(ChatColor.DARK_RED + "1. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(0)));
-                    invited.sendMessage(ChatColor.DARK_RED + "2. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(1)));
-                    invited.sendMessage(ChatColor.DARK_RED + "3. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(2)));
-                    invited.sendMessage(ChatColor.DARK_RED + "4. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(3)));
-                    invited.sendMessage(ChatColor.DARK_RED + "5. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(4)));
-                    invited.sendMessage(ChatColor.DARK_RED + "6. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(5)));
-                    invited.sendMessage(ChatColor.DARK_RED + "7. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(6)));
-                    invited.sendMessage(ChatColor.DARK_RED + "8. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(7)));
-                    invited.sendMessage(ChatColor.DARK_RED + "9. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(8)));
-                    invited.sendMessage(ChatColor.DARK_RED + "10. " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(9)));
-                    invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to decline by typing " + ChatColor.DARK_RED + "/guild decline <#>");
-                    break;
+            invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
+            for(int i = 0; i < size; i++){
+                invited.sendMessage(ChatColor.DARK_RED + String.valueOf(i+1) + ChatColor.RED + ". " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(i)));
             }
+            invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to decline by typing " + ChatColor.DARK_RED + "/guild decline <#>");
             return;
         }
         int id = invites.get(invited).get(num-1);
