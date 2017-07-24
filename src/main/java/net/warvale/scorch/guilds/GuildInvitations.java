@@ -48,12 +48,11 @@ public class GuildInvitations {
         }
         int size = invites.get(invited).size();
         if (helpMessage){
-            invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-            for(int i = 0; i < size; i++){
-                invited.sendMessage(ChatColor.DARK_RED + String.valueOf(i+1) + ChatColor.RED + ". " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(i)));
-            }
-            invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to accept by typing " + ChatColor.DARK_RED + "/guild accept <#>");
-            invited.sendMessage(ChatColor.RED + "Please note that accepting an invitation clears your list of pending invitations.");
+            sendInfoMessage(invited, true);
+            return;
+        }
+        if(num > size){
+            sendInfoMessage(invited, true);
             return;
         }
         int id = invites.get(invited).get(num-1);
@@ -76,11 +75,11 @@ public class GuildInvitations {
         }
         int size = invites.get(invited).size();
         if (helpMessage){
-            invited.sendMessage(ChatColor.DARK_RED + "Invitations: ");
-            for(int i = 0; i < size; i++){
-                invited.sendMessage(ChatColor.DARK_RED + String.valueOf(i+1) + ChatColor.RED + ". " + ChatColor.RED + Guilds.getGuildName(invites.get(invited).get(i)));
-            }
-            invited.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to decline by typing " + ChatColor.DARK_RED + "/guild decline <#>");
+            sendInfoMessage(invited, false);
+            return;
+        }
+        if(num > size){
+            sendInfoMessage(invited, false);
             return;
         }
         int id = invites.get(invited).get(num-1);
@@ -94,5 +93,19 @@ public class GuildInvitations {
     //Returns the amount of pending invites a player has
     public static int getAmountOfInvitations(Player player){
         return invites.get(player).size();
+    }
+
+    private static void sendInfoMessage(Player player, boolean acceptance) throws SQLException, ClassNotFoundException {
+        int size = invites.get(player).size();
+        player.sendMessage(ChatColor.DARK_RED + "Invitations: ");
+        for(int i = 0; i < size; i++){
+            player.sendMessage(ChatColor.DARK_RED + String.valueOf(i+1) + ChatColor.RED + ". " + ChatColor.RED + Guilds.getGuildName(invites.get(player).get(i)));
+        }
+        if(acceptance){
+            player.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to accept by typing " + ChatColor.DARK_RED + "/guild accept <#>");
+            player.sendMessage(ChatColor.RED + "Please note that accepting an invitation clears your list of pending invitations.");
+        } else {
+            player.sendMessage(ChatColor.RED + "You have multiple invites pending. Choose which to decline by typing " + ChatColor.DARK_RED + "/guild decline <#>");
+        }
     }
 }
