@@ -283,6 +283,8 @@ public class GuildCommand extends AbstractCommand{
                             int i = Integer.valueOf(args[1]);
                             if (i >= 1 && i <= 10){
                                 GuildInvitations.acceptInvite(player, i, false);
+                            } else {
+                                GuildInvitations.acceptInvite(player, -1, true);
                             }
                         } else {
                             GuildInvitations.acceptInvite(player, -1, true);
@@ -303,6 +305,8 @@ public class GuildCommand extends AbstractCommand{
                             int i = Integer.valueOf(args[1]);
                             if (i >= 1 && i <= 10){
                                 GuildInvitations.declineInvite(player, i, false);
+                            } else {
+                                GuildInvitations.declineInvite(player, -1, true);
                             }
                         } else {
                             GuildInvitations.declineInvite(player, -1, true);
