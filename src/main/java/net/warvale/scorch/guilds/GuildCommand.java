@@ -353,6 +353,6 @@ public class GuildCommand extends AbstractCommand{
         player.sendMessage(ChatColor.RED + "/guild leave" + ChatColor.DARK_RED + " - " + ChatColor.GOLD + "Leave the guild you are in.");
         player.sendMessage(ChatColor.RED + "/guild accept [#]" + ChatColor.DARK_RED + " - " + ChatColor.GOLD + "Accept a pending invitation to a guild.");
         player.sendMessage(ChatColor.RED + "/guild decline [#]" + ChatColor.DARK_RED + " - " + ChatColor.GOLD + "Decline a pending invitation to a guild.");
-        player.sendMessage(ChatColor.RED + "/guild disband" + ChatColor.DARK_RED + " - " + ChatColor.GOLD + "Delete the guild and unclaim all islands. CAN NOT BE UNDONE!");
+        player.sendMessage(ChatColor.RED + "/guild disband" + ChatColor.DARK_RED + " - " + ChatColor.GOLD + "Delete the guild and unclaim all islands. " + ChatColor.BOLD + ChatColor.DARK_RED + "CAN NOT BE UNDONE" + ChatColor.RESET + ChatColor.GOLD + "!");
     }
 }
