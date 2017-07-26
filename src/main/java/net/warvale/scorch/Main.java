@@ -47,7 +47,7 @@ public class Main extends JavaPlugin {
     	instance = this;
         
     	try {
-            initialise();
+            initialize();
             Broadcast.toConsole(Level.INFO, "Successfully enabled!");
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -69,7 +69,7 @@ public class Main extends JavaPlugin {
         } catch (IOException exx) {exx.printStackTrace();}
     }
 
-    private void initialise(){
+    private void initialize(){
         db = new SQLConnection(getConfig().getString("hostname"), getConfig().getInt("port"), getConfig().getString("database"), getConfig().getString("username"), getConfig().getString("password"));
         cmds = new CommandHandler(this);
         cmds.registerCommands();
