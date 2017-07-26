@@ -31,12 +31,12 @@ public class Guilds {
     }
     //Tests if a guild exists
     public static boolean doesGuildExist(String name) throws SQLException, ClassNotFoundException {
-        ResultSet set = SQLUtil.query(connection, "guilds", "id", new SQLUtil.Where(new SQLUtil.WhereVar("name", name).getWhere()));
-        String s = String.valueOf(set.getInt("id"));
-        if(s.isEmpty()){
-            return false;
+        ResultSet set = SQLUtil.query(connection, "guilds", "name", new SQLUtil.Where("1"));
+        ArrayList<String> st = new ArrayList<>();
+        while(set.next()){
+            st.add(set.getString("name"));
         }
-        return true;
+        return st.contains(name);
     }
     //creates a guild
     public static void createGuild(String name, Player owner) throws SQLException, ClassNotFoundException {
