@@ -243,6 +243,12 @@ public class Guilds {
         SQLUtil.update(connection, "guilds", "hub_y", y, new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
         SQLUtil.update(connection, "guilds", "hub_z", z, new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
     }
+    //Set the location of the hub island (bed location)
+    public static void setHubIslandLocation(int x, int y, int z, int guildId) throws SQLException, ClassNotFoundException {
+        SQLUtil.update(connection, "guilds", "hub_x", x, new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
+        SQLUtil.update(connection, "guilds", "hub_y", y, new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
+        SQLUtil.update(connection, "guilds", "hub_z", z, new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
+    }
     //Get the location of the hub island (bed location)
     public static Location getHubIslandLocation(int guildId) throws SQLException, ClassNotFoundException {
         ResultSet set = SQLUtil.query(connection, "guilds", "hub_x", new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
