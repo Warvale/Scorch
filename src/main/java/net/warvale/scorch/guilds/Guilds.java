@@ -94,7 +94,7 @@ public class Guilds {
         player.sendMessage(ChatColor.RED + "You have left the guild " + ChatColor.DARK_RED + name + ChatColor.RED + "!");
         sendGuildMessage(id, ChatColor.DARK_RED + player.getName() + " has left the guild!", false);
     }
-    //Delete a guild completely, can not be uundone;
+    //Delete a guild completely, can not be undone!
     public static void disbandGuild(int guildId)throws SQLException, ClassNotFoundException{
         sendGuildMessage(guildId, ChatColor.RED + "The guild has been disbanded!", true);
         for(Player player : getPlayersInGuild(guildId)){
@@ -182,11 +182,11 @@ public class Guilds {
     public static void setMaxPlayers(int players, int guildId) throws SQLException, ClassNotFoundException {
         SQLUtil.update(connection, "guilds", "max_players", players, new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
     }
-
+    //Set the owner of a specified guild
     public static void setGuildOwner(Player player, int guildId) throws SQLException, ClassNotFoundException {
         SQLUtil.update(connection, "guilds", "owner", player.getName(), new SQLUtil.Where(new SQLUtil.WhereVar("id", guildId).getWhere()));
     }
-
+    //Get all the players in a specified guild
     public static ArrayList<Player> getPlayersInGuild(int guildId) throws SQLException, ClassNotFoundException {
         ResultSet set = SQLUtil.query(connection, "users", "name", new SQLUtil.Where(new SQLUtil.WhereVar("guild_id", guildId).getWhere()));
         set.next();
@@ -214,7 +214,7 @@ public class Guilds {
     public static int getAmountOfPlayers(int guildId) throws SQLException, ClassNotFoundException {
         return getPlayersInGuild(guildId).size();
     }
-    //Send a message to every player of a specified guild
+    //Send a message to every player of a specified guild. If sound == true, all the players will hear a soundeffect as well
     public static void sendGuildMessage(int guildId, String message, boolean sound) throws SQLException, ClassNotFoundException {
         ArrayList<Player> players = getPlayersInGuild(guildId);
         for (Player player : players){
